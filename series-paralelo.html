@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resistencias en Serie y Paralelo – Ohmnio Calc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Ohmnio Calc" class="logo">
+    <h1>Ohmnio Calc</h1>
+  </header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion-cable.html">Sección Cable</a>
+    <a href="awg-mm.html">AWG ↔ mm</a>
+    <a href="mazo-cables.html">Mazo</a>
+    <a href="resistencias.html">Resistencias</a>
+    <a href="series-paralelo.html">Serie/Paralelo</a>
+    <a href="divisor-tension.html">Divisor Tensión</a>
+    <a href="potencia.html">Potencia</a>
+    <a href="coste-coche.html">Coste Coche</a>
+    <a href="conectores-38999.html">Conectores 38999</a>
+  </nav>
+  <main>
+    <h2>Resistencias en Serie y Paralelo</h2>
+    <p>Introduce los valores de las resistencias separados por comas. La herramienta calculará la resistencia equivalente para una conexión en serie y en paralelo.</p>
+    <div class="card">
+      <form id="serieParaleloForm" onsubmit="calcularSeriesParalelo(event)">
+        <label for="resistencias">Resistencias (Ω)</label>
+        <input type="text" id="resistencias" name="resistencias" placeholder="100, 220, 330">
+        <button type="submit">Calcular</button>
+      </form>
+      <div id="resultado" class="result"></div>
+    </div>
+    <div class="card">
+      <h3>Información</h3>
+      <p>En una conexión en <strong>serie</strong>, la resistencia equivalente es la suma de las resistencias individuales: R<sub>eq</sub>=R1+R2+…+Rn. En una conexión en <strong>paralelo</strong>, la inversa de la resistencia equivalente es la suma de las inversas: 1/R<sub>eq</sub>=1/R1+1/R2+…+1/Rn.</p>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Ohmnio Calc
+  </footer>
+  <script>
+    function calcularSeriesParalelo(event) {
+      event.preventDefault();
+      const input = document.getElementById('resistencias').value.trim();
+      const resultDiv = document.getElementById('resultado');
+      if (!input) {
+        resultDiv.innerHTML = '<p>Introduce valores de resistencias.</p>';
+        return;
+      }
+      const values = input.split(/[,;\s]+/).map(function(x) { return parseFloat(x); }).filter(function(x) { return !isNaN(x) && x > 0; });
+      if (values.length === 0) {
+        resultDiv.innerHTML = '<p>No se han reconocido valores válidos.</p>';
+        return;
+      }
+      const sumSeries = values.reduce(function(sum, r) { return sum + r; }, 0);
+      const sumReciprocal = values.reduce(function(sum, r) { return sum + 1 / r; }, 0);
+      const eqParallel = values.length === 1 ? values[0] : 1 / sumReciprocal;
+      resultDiv.innerHTML = '<p><strong>Resistencia equivalente en serie:</strong> ' + sumSeries.toFixed(2) + ' Ω</p>' +
+        '<p><strong>Resistencia equivalente en paralelo:</strong> ' + eqParallel.toFixed(2) + ' Ω</p>';
+    }
+  </script>
+</body>
+</html>

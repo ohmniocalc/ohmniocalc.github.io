@@ -1,182 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conversor AWG ↔ mm | Ohmnio Calc</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background: #f7fafc;
-  color: #333;
-}
-header {
-  background: #2d3748;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-}
-nav {
-  background: #4a5568;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 0.75rem;
-  flex-wrap: wrap;
-}
-nav a {
-  color: #f7fafc;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-main {
-  padding: 1rem;
-  max-width: 800px;
-  margin: auto;
-}
-.card {
-  background: #fff;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.card h2 {
-  margin-top: 0;
-  color: #2d3748;
-}
-input, select, button {
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-}
-button {
-  background: #2d3748;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background: #4a5568;
-}
-.result {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  background: #edf2f7;
-  border-radius: 0.25rem;
-}
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-  padding: 1rem;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor AWG ↔ mm – Ohmnio Calc</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <h1>Ohmnio Calc</h1>
-</header>
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="seccion-cable.html">Sección Cable</a>
-  <a href="awg-mm.html">AWG ↔ mm</a>
-  <a href="mazo-cables.html">Mazo de Cables</a>
-  <a href="resistencias.html">Resistencias</a>
-  <a href="coste-coche.html">Coste Coche</a>
-  <a href="conectores-38999.html">Conectores 38999</a>
-</nav>
-<main>
-  <div class="card">
-    <h2>Conversor AWG ⇔ mm y mm²</h2>
-    <p>Introduce un valor y selecciona el tipo de entrada. La calculadora te mostrará el diámetro, la sección y los calibres estándar recomendados en AWG y en el sistema métrico.</p>
-    <label for="inputType">Tipo de valor:</label>
-    <select id="inputType">
-      <option value="awg">AWG</option>
-      <option value="diametro">Diámetro (mm)</option>
-      <option value="area">Sección (mm²)</option>
-    </select>
-    <label for="inputValue">Valor:</label>
-    <input type="number" id="inputValue" step="any" min="0">
-    <button onclick="calcular()">Calcular</button>
-    <div id="resultado" class="result"></div>
-  </div>
-  <div class="card">
-    <h2>Notas</h2>
-    <p>El calibre AWG se utiliza principalmente en sistemas eléctricos de EE.UU. y se basa en un criterio geométrico. Las equivalencias son aproximadas y pueden variar según el fabricante. Siempre verifica con la norma y catálogo del cable a usar.</p>
-  </div>
-</main>
-<footer>
-  &copy; 2025 Ohmnio Calc
-</footer>
-<script>
-const metricSizes = [0.22, 0.25, 0.34, 0.5, 0.75, 1, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150];
-function awgToDia(awg) {
-  return 0.127 * Math.pow(92, (36 - awg) / 39);
-}
-function diaToAwg(dia) {
-  const awg = 36 - 39 * Math.log10(dia / 0.127) / Math.log10(92);
-  return awg;
-}
-function areaFromDia(dia) {
-  return Math.PI * Math.pow(dia / 2, 2);
-}
-function diaFromArea(area) {
-  return 2 * Math.sqrt(area / Math.PI);
-}
-function nearestMetric(area) {
-  let nearest = metricSizes[0];
-  let minDiff = Math.abs(area - metricSizes[0]);
-  for (let i = 1; i < metricSizes.length; i++) {
-    const diff = Math.abs(area - metricSizes[i]);
-    if (diff < minDiff) {
-      nearest = metricSizes[i];
-      minDiff = diff;
+  <header>
+    <img src="logo.png" alt="Ohmnio Calc" class="logo">
+    <h1>Ohmnio Calc</h1>
+  </header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion-cable.html">Sección Cable</a>
+    <a href="awg-mm.html">AWG ↔ mm</a>
+    <a href="mazo-cables.html">Mazo</a>
+    <a href="resistencias.html">Resistencias</a>
+    <a href="series-paralelo.html">Serie/Paralelo</a>
+    <a href="divisor-tension.html">Divisor Tensión</a>
+    <a href="potencia.html">Potencia</a>
+    <a href="coste-coche.html">Coste Coche</a>
+    <a href="conectores-38999.html">Conectores 38999</a>
+  </nav>
+  <main>
+    <h2>Conversor AWG ↔ mm y mm²</h2>
+    <p>Selecciona el tipo de valor que vas a introducir (calibre AWG, diámetro en milímetros o sección en mm²) e introduce el valor. La calculadora te devolverá el diámetro, la sección y las recomendaciones de calibre estándar en ambos sistemas.</p>
+    <div class="card">
+      <form id="awgForm" onsubmit="calcular(event)">
+        <label for="inputType">Tipo de valor</label>
+        <select id="inputType" name="inputType">
+          <option value="awg">AWG</option>
+          <option value="diametro">Diámetro (mm)</option>
+          <option value="area">Sección (mm²)</option>
+        </select>
+        <label for="inputValue">Valor</label>
+        <input type="number" id="inputValue" name="inputValue" step="any" min="0">
+        <button type="submit">Calcular</button>
+      </form>
+      <div id="resultado" class="result"></div>
+    </div>
+    <div class="card">
+      <h3>Notas</h3>
+      <p>El calibre AWG se utiliza principalmente en sistemas eléctricos de EE. UU. Las equivalencias geométricas son aproximadas y pueden variar según el fabricante. Utiliza siempre esta información como orientación y comprueba con la norma y catálogos.</p>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Ohmnio Calc
+  </footer>
+  <script>
+    // Tabla de secciones métricas habituales (mm²)
+    const metricSizes = [0.22, 0.25, 0.34, 0.5, 0.75, 1, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185];
+    function awgToDia(awg) {
+      return 0.127 * Math.pow(92, (36 - awg) / 39);
     }
-  }
-  return nearest;
-}
-function calcular() {
-  const type = document.getElementById('inputType').value;
-  const value = parseFloat(document.getElementById('inputValue').value);
-  const resultDiv = document.getElementById('resultado');
-  if (isNaN(value) || value <= 0) {
-    resultDiv.innerHTML = '<p>Introduce un valor válido.</p>';
-    return;
-  }
-  let awg, dia, area;
-  if (type === 'awg') {
-    awg = value;
-    dia = awgToDia(awg);
-    area = areaFromDia(dia);
-  } else if (type === 'diametro') {
-    dia = value;
-    area = areaFromDia(dia);
-    awg = diaToAwg(dia);
-  } else {
-    area = value;
-    dia = diaFromArea(area);
-    awg = diaToAwg(dia);
-  }
-  const awgRound = Math.round(awg);
-  const areaMetric = area;
-  const nearestMetricVal = nearestMetric(areaMetric);
-  resultDiv.innerHTML = `
-    <p><strong>Diámetro aproximado:</strong> ${dia.toFixed(3)} mm</p>
-    <p><strong>Sección aproximada:</strong> ${area.toFixed(4)} mm²</p>
-    <p><strong>AWG aproximado:</strong> ${awg.toFixed(1)} (≈ ${awgRound} AWG)</p>
-    <p><strong>Recomendación en AWG:</strong> ${awgRound} AWG</p>
-    <p><strong>Recomendación en mm²:</strong> ${nearestMetricVal} mm²</p>
-  `;
-}
-</script>
+    function diaToAwg(dia) {
+      const awg = 36 - 39 * Math.log10(dia / 0.127) / Math.log10(92);
+      return awg;
+    }
+    function areaFromDia(dia) {
+      return Math.PI * Math.pow(dia / 2, 2);
+    }
+    function diaFromArea(area) {
+      return 2 * Math.sqrt(area / Math.PI);
+    }
+    function nearestMetric(area) {
+      let nearest = metricSizes[0];
+      let minDiff = Math.abs(area - metricSizes[0]);
+      for (let i = 1; i < metricSizes.length; i++) {
+        const diff = Math.abs(area - metricSizes[i]);
+        if (diff < minDiff) {
+          nearest = metricSizes[i];
+          minDiff = diff;
+        }
+      }
+      return nearest;
+    }
+    function calcular(event) {
+      event.preventDefault();
+      const type = document.getElementById('inputType').value;
+      const value = parseFloat(document.getElementById('inputValue').value);
+      const resultDiv = document.getElementById('resultado');
+      if (isNaN(value) || value <= 0) {
+        resultDiv.innerHTML = '<p>Introduce un valor válido.</p>';
+        return;
+      }
+      let awg, dia, area;
+      if (type === 'awg') {
+        awg = value;
+        dia = awgToDia(awg);
+        area = areaFromDia(dia);
+      } else if (type === 'diametro') {
+        dia = value;
+        area = areaFromDia(dia);
+        awg = diaToAwg(dia);
+      } else {
+        area = value;
+        dia = diaFromArea(area);
+        awg = diaToAwg(dia);
+      }
+      const awgRound = Math.round(awg);
+      const nearestMetricVal = nearestMetric(area);
+      resultDiv.innerHTML = `
+        <p><strong>Diámetro estimado:</strong> ${dia.toFixed(3)} mm</p>
+        <p><strong>Sección estimada:</strong> ${area.toFixed(4)} mm²</p>
+        <p><strong>AWG aproximado:</strong> ${awg.toFixed(1)} (≈ ${awgRound} AWG)</p>
+        <p><strong>Recomendación en AWG:</strong> ${awgRound} AWG</p>
+        <p><strong>Recomendación en mm²:</strong> ${nearestMetricVal} mm²</p>
+      `;
+    }
+  </script>
 </body>
 </html>

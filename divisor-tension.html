@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divisor de Tensión – Ohmnio Calc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Ohmnio Calc" class="logo">
+    <h1>Ohmnio Calc</h1>
+  </header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion-cable.html">Sección Cable</a>
+    <a href="awg-mm.html">AWG ↔ mm</a>
+    <a href="mazo-cables.html">Mazo</a>
+    <a href="resistencias.html">Resistencias</a>
+    <a href="series-paralelo.html">Serie/Paralelo</a>
+    <a href="divisor-tension.html">Divisor Tensión</a>
+    <a href="potencia.html">Potencia</a>
+    <a href="coste-coche.html">Coste Coche</a>
+    <a href="conectores-38999.html">Conectores 38999</a>
+  </nav>
+  <main>
+    <h2>Divisor de Tensión</h2>
+    <p>Introduce los valores de las dos resistencias y el voltaje de entrada. Obtendrás la tensión de salida en el punto entre las resistencias.</p>
+    <div class="card">
+      <form id="divisorForm" onsubmit="calcularDivisor(event)">
+        <label for="R1">Resistencia R1 (Ω)</label>
+        <input type="number" id="R1" name="R1" step="any" min="0">
+        <label for="R2">Resistencia R2 (Ω)</label>
+        <input type="number" id="R2" name="R2" step="any" min="0">
+        <label for="Vin">Voltaje de entrada Vin (V)</label>
+        <input type="number" id="Vin" name="Vin" step="any" min="0">
+        <button type="submit">Calcular</button>
+      </form>
+      <div id="resultado" class="result"></div>
+    </div>
+    <div class="card">
+      <h3>Fórmula</h3>
+      <p>La tensión de salida V<sub>out</sub> en un divisor resistivo se obtiene como V<sub>out</sub>=Vin·R2/(R1+R2). Debes asegurarte de que las resistencias y Vin sean coherentes en valor y unidad.</p>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Ohmnio Calc
+  </footer>
+  <script>
+    function calcularDivisor(event) {
+      event.preventDefault();
+      const R1 = parseFloat(document.getElementById('R1').value);
+      const R2 = parseFloat(document.getElementById('R2').value);
+      const Vin = parseFloat(document.getElementById('Vin').value);
+      const result = document.getElementById('resultado');
+      if ([R1, R2, Vin].some(v => isNaN(v) || v <= 0)) {
+        result.innerHTML = '<p>Introduce valores positivos para R1, R2 y Vin.</p>';
+        return;
+      }
+      const Vout = Vin * R2 / (R1 + R2);
+      result.innerHTML = '<p><strong>V<sub>out</sub>:</strong> ' + Vout.toFixed(3) + ' V</p>';
+    }
+  </script>
+</body>
+</html>

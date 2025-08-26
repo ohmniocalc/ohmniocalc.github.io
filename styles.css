@@ -1,0 +1,127 @@
+/* Global Styles for Ohmnio Calc */
+
+/* Colour palette based on the Ohmnio logo */
+:root {
+  --primary: #0d253f;      /* Dark navy for header and footer */
+  --secondary: #1f4768;    /* Slightly lighter navy for navigation */
+  --accent: #e06424;       /* Warm orange accent for buttons */
+  --bg: #f5f8fc;           /* Light background for pages */
+  --card-bg: #ffffff;      /* Card background */
+  --border: #d5dfe8;       /* Soft border colour */
+}
+
+/* Base page reset */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header with logo and site name */
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header img.logo {
+  height: 42px;
+  margin-right: 0.6rem;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Navigation bar */
+nav {
+  background: var(--secondary);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+nav a:hover {
+  background: var(--primary);
+}
+
+/* Main content area */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Card component */
+.card {
+  background: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+.card h2, .card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* Forms */
+form label {
+  display: block;
+  margin-top: 0.5rem;
+}
+form input,
+form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.3rem;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+}
+
+button {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.15s ease-in-out;
+}
+button:hover {
+  background: #c4531f;
+}
+
+/* Result / Output boxes */
+.result {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background: #eaf5ff;
+  border: 1px solid #cfe3fc;
+  border-radius: 0.4rem;
+}
+
+/* Footers */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}

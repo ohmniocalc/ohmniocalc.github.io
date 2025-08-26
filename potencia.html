@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potencia Eléctrica – Ohmnio Calc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Ohmnio Calc" class="logo">
+    <h1>Ohmnio Calc</h1>
+  </header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion-cable.html">Sección Cable</a>
+    <a href="awg-mm.html">AWG ↔ mm</a>
+    <a href="mazo-cables.html">Mazo</a>
+    <a href="resistencias.html">Resistencias</a>
+    <a href="series-paralelo.html">Serie/Paralelo</a>
+    <a href="divisor-tension.html">Divisor Tensión</a>
+    <a href="potencia.html">Potencia</a>
+    <a href="coste-coche.html">Coste Coche</a>
+    <a href="conectores-38999.html">Conectores 38999</a>
+  </nav>
+  <main>
+    <h2>Potencia Eléctrica</h2>
+    <p>Calcula la potencia eléctrica mediante distintas combinaciones de variables. Selecciona qué valores conoces y proporciona sus magnitudes.</p>
+    <div class="card">
+      <form id="potenciaForm" onsubmit="calcularPotencia(event)">
+        <label for="combo">Variables conocidas</label>
+        <select id="combo" name="combo">
+          <option value="VI">Voltaje (V) y Corriente (A)</option>
+          <option value="VR">Voltaje (V) y Resistencia (Ω)</option>
+          <option value="IR">Corriente (A) y Resistencia (Ω)</option>
+        </select>
+        <div id="campo1">
+          <label for="val1">Valor 1</label>
+          <input type="number" id="val1" name="val1" step="any" min="0">
+        </div>
+        <div id="campo2">
+          <label for="val2">Valor 2</label>
+          <input type="number" id="val2" name="val2" step="any" min="0">
+        </div>
+        <button type="submit">Calcular potencia</button>
+      </form>
+      <div id="resultado" class="result"></div>
+    </div>
+    <div class="card">
+      <h3>Fórmulas</h3>
+      <p>La potencia eléctrica puede expresarse de varias maneras dependiendo de las magnitudes conocidas:</p>
+      <ul>
+        <li>Con voltaje y corriente: <strong>P = V · I</strong></li>
+        <li>Con voltaje y resistencia: <strong>P = V² / R</strong></li>
+        <li>Con corriente y resistencia: <strong>P = I² · R</strong></li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Ohmnio Calc
+  </footer>
+  <script>
+    // Update labels when combination changes
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('combo').addEventListener('change', actualizarLabels);
+      actualizarLabels();
+    });
+    function actualizarLabels() {
+      const combo = document.getElementById('combo').value;
+      const label1 = document.querySelector('label[for="val1"]');
+      const label2 = document.querySelector('label[for="val2"]');
+      if (combo === 'VI') {
+        label1.textContent = 'Voltaje (V)';
+        label2.textContent = 'Corriente (A)';
+      } else if (combo === 'VR') {
+        label1.textContent = 'Voltaje (V)';
+        label2.textContent = 'Resistencia (Ω)';
+      } else {
+        label1.textContent = 'Corriente (A)';
+        label2.textContent = 'Resistencia (Ω)';
+      }
+    }
+    function calcularPotencia(event) {
+      event.preventDefault();
+      const combo = document.getElementById('combo').value;
+      const v1 = parseFloat(document.getElementById('val1').value);
+      const v2 = parseFloat(document.getElementById('val2').value);
+      const resultDiv = document.getElementById('resultado');
+      if (isNaN(v1) || isNaN(v2) || v1 <= 0 || v2 <= 0) {
+        resultDiv.innerHTML = '<p>Introduce valores positivos en ambos campos.</p>';
+        return;
+      }
+      let P;
+      if (combo === 'VI') {
+        // P = V * I
+        P = v1 * v2;
+      } else if (combo === 'VR') {
+        // P = V^2 / R
+        P = (v1 * v1) / v2;
+      } else {
+        // P = I^2 * R
+        P = (v1 * v1) * v2;
+      }
+      resultDiv.innerHTML = '<p><strong>Potencia:</strong> ' + P.toFixed(3) + ' W</p>';
+    }
+  </script>
+</body>
+</html>
