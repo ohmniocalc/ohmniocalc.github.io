@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Mazo de Cables - Ohmnio Calc</title>
+    <title>Cálculo de Mazo de Cables - Ohmnio Calc</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,7 +73,7 @@
 </head>
 <body>
     <header>
-        <h1>Calculadora de Mazo de Cables</h1>
+        <h1>Cálculo de Mazo de Cables</h1>
     </header>
     <nav>
         <a href="index.html">Inicio</a>
@@ -82,40 +82,63 @@
         <a href="mazo-cables.html">Cálculo de Mazo</a>
     </nav>
     <main>
-        <p>Calcula el diámetro aproximado de un mazo de cables redondos agrupados. Este cálculo es aproximado y no reemplaza un diseño detallado.</p>
-        <label for="nCables">Número de cables</label>
-        <input type="number" id="nCables" value="4" min="1" step="1">
-        <label for="dCable">Diámetro de cada cable (mm)</label>
-        <input type="number" id="dCable" value="2" step="any">
-        <label for="extra">Extra por protección (malla, termo, etc.) (mm)</label>
-        <input type="number" id="extra" value="0" step="any">
-        <button onclick="calcularMazo()">Calcular diámetro del mazo</button>
+        <p>Introduce los diámetros de cada cable separados por comas. Puedes elegir si introduces valores en milímetros o en calibres AWG. También puedes añadir protecciones como malla, termorretráctil o cinta, y un extra personalizado en milímetros. El resultado es una estimación del diámetro del mazo y el porcentaje de ocupación.</p>
+        <label for="diametros">Diámetros de los cables (separados por comas)</label>
+        <input type="text" id="diametros" placeholder="2, 2.5, 3" />
+        <label for="unidad">Unidad de los diámetros</label>
+        <select id="unidad">
+            <option value="mm">mm</option>
+            <option value="awg">AWG</option>
+        </select>
+        <label>Protecciones adicionales</label>
+        <label><input type="checkbox" id="malla" /> Malla</label>
+        <label><input type="checkbox" id="termo" /> Termorretráctil</label>
+        <label><input type="checkbox" id="cinta" /> Cinta</label>
+        <label for="extra">Extra adicional (mm)</label>
+        <input type="number" id="extra" value="0" step="any" />
+        <button onclick="calcularMazo()">Calcular mazo</button>
         <div id="resultado"></div>
     </main>
     <script>
+        function awgToMM(awg) {
+            return 0.127 * Math.pow(92, (36 - awg) / 39);
+        }
         function calcularMazo() {
-            const n = parseInt(document.getElementById('nCables').value);
-            const d = parseFloat(document.getElementById('dCable').value);
-            const extra = parseFloat(document.getElementById('extra').value);
-            if (isNaN(n) || isNaN(d) || isNaN(extra) || n < 1) {
-                document.getElementById('resultado').innerHTML = '<p>Por favor completa todos los campos correctamente.</p>';
+            const diamStr = document.getElementById('diametros').value.trim();
+            const unidad = document.getElementById('unidad').value;
+            const extra = parseFloat(document.getElementById('extra').value) || 0;
+            const resultDiv = document.getElementById('resultado');
+            if (!diamStr) {
+                resultDiv.innerHTML = '<p>Introduce los diámetros de los cables.</p>';
                 return;
             }
-            /*
-             * Estimación del diámetro del mazo.
-             * Para una distribución hexagonal densa, se aproxima como dBundle = d * ceil(sqrt(n)) + 2*extra.
-             * Esta fórmula es una aproximación sencilla. Para resultados más precisos se deberían considerar capas.
-             */
-            const factor = Math.ceil(Math.sqrt(n));
-            const diametroMazo = d * factor + 2 * extra;
-            const areaIndividual = Math.PI * Math.pow(d, 2) / 4.0;
-            const areaMazo = Math.PI * Math.pow(diametroMazo, 2) / 4.0;
-            const areaOcupada = areaIndividual * n;
+            const partes = diamStr.split(/[,;\s]+/).map(function(x) { return parseFloat(x); }).filter(function(x) { return !isNaN(x) && x > 0; });
+            if (partes.length === 0) {
+                resultDiv.innerHTML = '<p>Introduce al menos un diámetro válido.</p>';
+                return;
+            }
+            // Convertir a mm si viene en AWG
+            let dMM = partes.map(function(val) { return unidad === 'awg' ? awgToMM(val) : val; });
+            const n = dMM.length;
+            // Diámetro equivalente (media cuadrática)
+            const sumSq = dMM.reduce(function(sum, d) { return sum + d * d; }, 0);
+            const dEq = Math.sqrt(sumSq / n);
+            // Número de capas aproximado
+            const capas = Math.ceil(Math.sqrt(n));
+            let dBundle = dEq * capas;
+            // Protecciones: valores aproximados en mm (por cada lado)
+            let proteccion = 0;
+            if (document.getElementById('malla').checked) proteccion += 1.0;
+            if (document.getElementById('termo').checked) proteccion += 1.0;
+            if (document.getElementById('cinta').checked) proteccion += 0.5;
+            dBundle += 2 * (proteccion + extra);
+            // Áreas y relleno
+            const areaMazo = Math.PI * Math.pow(dBundle, 2) / 4.0;
+            const areaOcupada = dMM.reduce(function(sum, d) { return sum + Math.PI * Math.pow(d, 2) / 4.0; }, 0);
             const relleno = (areaOcupada / areaMazo) * 100;
-            const resultDiv = document.getElementById('resultado');
-            resultDiv.innerHTML = '<p>Diámetro estimado del mazo: <strong>' + diametroMazo.toFixed(2) + ' mm</strong></p>' +
+            resultDiv.innerHTML = '<p>Diámetro estimado del mazo: <strong>' + dBundle.toFixed(2) + ' mm</strong></p>' +
                 '<p>Relleno aproximado: ' + relleno.toFixed(1) + ' %</p>' +
-                '<p>Nota: este cálculo es orientativo. Añade márgenes según necesidades y revisa normas aplicables.</p>';
+                '<p><small>Nota: estos cálculos son orientativos. Ajusta según tus necesidades y verifica con normas y profesionales.</small></p>';
         }
     </script>
 </body>
