@@ -1,87 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ohmnio Calc - Calculadoras eléctricas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: #f7fafc;
-            color: #333;
-        }
-        header {
-            background: #2d3748;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            background: #4a5568;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 0.75rem;
-        }
-        nav a {
-            color: #f7fafc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            padding: 1rem 2rem;
-            max-width: 800px;
-            margin: auto;
-        }
-        footer {
-            background: #2d3748;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-            font-size: 0.8rem;
-        }
-        .card {
-            background: #fff;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .card h2, .card h3 {
-            margin-top: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ohmnio Calc – Calculadoras Eléctricas</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Ohmnio Calc</h1>
-        <p>Herramientas eléctricas online</p>
-    </header>
-    <nav>
-        <a href="seccion-cable.html">Sección de Cable</a>
-        <a href="awg-mm.html">Conversor AWG⇆mm</a>
-        <a href="mazo-cables.html">Cálculo de Mazo</a>
-    </nav>
-    <main>
-        <div class="card">
-            <h2>Bienvenido a Ohmnio Calc</h2>
-            <p>Aquí encontrarás calculadoras técnicas para electricidad y cables. Estos cálculos son aproximados y de carácter orientativo: consulta siempre las normativas y a un técnico cualificado antes de ejecutar un proyecto.</p>
-            <p>Puedes empezar con nuestra <strong>Calculadora de sección de cable</strong> para dimensionar cables según potencia, distancia y caída de tensión; usar el <strong>Conversor AWG ⇆ mm</strong> para convertir calibres americanos a milímetros; y nuestra herramienta de <strong>Cálculo de mazo de cables</strong> para estimar el diámetro de un mazo de varios cables.</p>
-        </div>
-        <div class="card">
-            <h3>Nota legal</h3>
-            <p>Las herramientas de este sitio proporcionan estimaciones basadas en fórmulas estándar. El autor no se responsabiliza de un uso indebido o daños derivados de su utilización. Para instalaciones reales, revisa siempre la normativa vigente y recurre a profesionales.</p>
-        </div>
-    </main>
-    <footer>
-        <p>© 2025 Ohmnio Calc. Todos los derechos reservados.</p>
-    </footer>
+  <header>
+    <img src="logo.png" alt="Ohmnio Calc" class="logo">
+    <h1>Ohmnio Calc</h1>
+  </header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="seccion-cable.html">Sección Cable</a>
+    <a href="awg-mm.html">AWG ↔ mm</a>
+    <a href="mazo-cables.html">Mazo</a>
+    <a href="resistencias.html">Resistencias</a>
+    <a href="series-paralelo.html">Serie/Paralelo</a>
+    <a href="divisor-tension.html">Divisor Tensión</a>
+    <a href="potencia.html">Potencia</a>
+    <a href="coste-coche.html">Coste Coche</a>
+    <a href="conectores-38999.html">Conectores 38999</a>
+  </nav>
+  <main>
+    <div class="card">
+      <h2>Bienvenido a Ohmnio Calc</h2>
+      <p>Ohmnio Calc reúne en un único lugar las calculadoras eléctricas más útiles para profesionales y aficionados: dimensionar cables, convertir calibres AWG a milímetros, estimar el diámetro de un mazo de cables, calcular resistencias, divisores de tensión y potencias, así como estimar costes de vehículos combustión/eléctricos/híbridos. También encontrarás información sobre conectores MIL‑DTL‑38999.</p>
+      <p>Selecciona cualquiera de las herramientas a continuación para empezar:</p>
+    </div>
+    <!-- List of calculator cards -->
+    <div class="card">
+      <h3>Sección de Cable</h3>
+      <p>Calcula la sección mínima recomendada de un conductor eléctrico en función de la potencia, distancia, cos φ y caída de tensión admisible.</p>
+      <p><a href="seccion-cable.html"><button>Ir a la calculadora</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Conversor AWG ↔ mm</h3>
+      <p>Convierte calibres estadounidenses (AWG) a diámetro y sección en milímetros, o viceversa, con recomendaciones de calibres estándar.</p>
+      <p><a href="awg-mm.html"><button>Ir al conversor</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Cálculo de Mazo</h3>
+      <p>Introduce diámetros de cables (en mm o AWG) y obtén el diámetro estimado de un mazo agrupado, considerando protecciones como malla, termo o cinta.</p>
+      <p><a href="mazo-cables.html"><button>Ir a la herramienta</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Resistencias y Ley de Ohm</h3>
+      <p>Calcula voltaje, corriente o resistencia según la Ley de Ohm conociendo las otras dos magnitudes.</p>
+      <p><a href="resistencias.html"><button>Ir a la calculadora</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Resistencias en Serie y Paralelo</h3>
+      <p>Introduce un conjunto de resistencias y obtén la resistencia equivalente tanto en configuración serie como paralelo.</p>
+      <p><a href="series-paralelo.html"><button>Ir a la calculadora</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Divisor de Tensión</h3>
+      <p>Calcula la tensión de salida en un divisor resistivo dado un voltaje de entrada y los valores de las resistencias.</p>
+      <p><a href="divisor-tension.html"><button>Ir a la calculadora</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Potencia Eléctrica</h3>
+      <p>Calcula la potencia eléctrica a partir de diferentes combinaciones de voltaje, corriente y resistencia.</p>
+      <p><a href="potencia.html"><button>Ir a la calculadora</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Coste de Coche</h3>
+      <p>Estima el coste por 100 km de un vehículo de combustión, eléctrico o híbrido según consumos típicos o personalizados.</p>
+      <p><a href="coste-coche.html"><button>Ir a la calculadora</button></a></p>
+    </div>
+    <div class="card">
+      <h3>Conectores 38999</h3>
+      <p>Descubre las series de conectores MIL‑DTL‑38999, sus tamaños de carcasa y accesorios recomendados.</p>
+      <p><a href="conectores-38999.html"><button>Consultar información</button></a></p>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Ohmnio Calc
+  </footer>
 </body>
 </html>
