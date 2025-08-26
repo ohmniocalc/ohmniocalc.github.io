@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resistencias y Ley de Ohm - Ohmnio Calc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f7fafc;
+            color: #333;
+        }
+        header {
+            background: #2d3748;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #4a5568;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem;
+        }
+        nav a {
+            color: #f7fafc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 1rem 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 0.5rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.4rem;
+            margin-top: 0.2rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.3rem;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #2b6cb0;
+            color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2c5282;
+        }
+        #resultado {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Resistencias y Ley de Ohm</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="seccion-cable.html">Sección de Cable</a>
+        <a href="awg-mm.html">AWG⇆mm</a>
+        <a href="mazo-cables.html">Mazo</a>
+        <a href="resistencias.html">Resistencias</a>
+        <a href="coste-coche.html">Coste Coche</a>
+        <a href="conectores-38999.html">Conectores 38999</a>
+    </nav>
+    <main>
+        <p>Utiliza esta herramienta para calcular una de las tres magnitudes de la Ley de Ohm (voltaje, corriente o resistencia) conociendo las otras dos.</p>
+        <label for="variable">Magnitud a calcular</label>
+        <select id="variable">
+            <option value="V">Voltaje (V)</option>
+            <option value="I">Corriente (A)</option>
+            <option value="R">Resistencia (Ω)</option>
+        </select>
+        <label for="valor1">Valor 1</label>
+        <input type="number" id="valor1" step="any">
+        <label for="valor2">Valor 2</label>
+        <input type="number" id="valor2" step="any">
+        <button onclick="calcularOhm()">Calcular</button>
+        <div id="resultado"></div>
+    </main>
+    <script>
+        function calcularOhm() {
+            const variable = document.getElementById('variable').value;
+            const v1 = parseFloat(document.getElementById('valor1').value);
+            const v2 = parseFloat(document.getElementById('valor2').value);
+            const result = document.getElementById('resultado');
+            if (isNaN(v1) || isNaN(v2) || v1 <= 0 || v2 <= 0) {
+                result.innerHTML = '<p>Introduce valores válidos.</p>';
+                return;
+            }
+            let V, I, R;
+            if (variable === 'V') {
+                I = v1;
+                R = v2;
+                V = I * R;
+                result.innerHTML = '<p>Voltaje resultante: <strong>' + V.toFixed(3) + ' V</strong></p>';
+            } else if (variable === 'I') {
+                V = v1;
+                R = v2;
+                I = V / R;
+                result.innerHTML = '<p>Corriente resultante: <strong>' + I.toFixed(3) + ' A</strong></p>';
+            } else {
+                V = v1;
+                I = v2;
+                R = V / I;
+                result.innerHTML = '<p>Resistencia resultante: <strong>' + R.toFixed(3) + ' Ω</strong></p>';
+            }
+        }
+    </script>
+</body>
+</html>
