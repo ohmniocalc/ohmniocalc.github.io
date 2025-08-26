@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor AWG a mm y viceversa - Ohmnio Calc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f7fafc;
+            color: #333;
+        }
+        header {
+            background: #2d3748;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #4a5568;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem;
+        }
+        nav a {
+            color: #f7fafc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 1rem 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 0.5rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.4rem;
+            margin-top: 0.2rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.3rem;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #2b6cb0;
+            color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2c5282;
+        }
+        #resultado {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conversor AWG ⇆ mm</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="seccion-cable.html">Sección de Cable</a>
+        <a href="awg-mm.html">Conversor AWG⇆mm</a>
+        <a href="mazo-cables.html">Cálculo de Mazo</a>
+    </nav>
+    <main>
+        <p>Convierte calibres AWG a milímetros y viceversa. Si introduces un valor en AWG se calculará el diámetro y la sección en mm, y si introduces un diámetro en mm se estimará el calibre AWG equivalente. Deja vacío el campo que no quieras usar.</p>
+        <label for="awg">Calibre AWG (0-40)</label>
+        <input type="number" id="awg" step="any" min="0" max="40" placeholder="Introduce calibre AWG">
+        <label for="diam">Diámetro (mm)</label>
+        <input type="number" id="diam" step="any" placeholder="Introduce diámetro en mm">
+        <button onclick="convertir()">Convertir</button>
+        <div id="resultado"></div>
+    </main>
+    <script>
+        function convertir() {
+            const awgInput = document.getElementById('awg').value;
+            const diamInput = document.getElementById('diam').value;
+            const resultDiv = document.getElementById('resultado');
+            resultDiv.innerHTML = '';
+            if (awgInput !== '') {
+                const awg = parseFloat(awgInput);
+                if (isNaN(awg)) {
+                    resultDiv.innerHTML = '<p>Calibre AWG no válido.</p>';
+                    return;
+                }
+                // Fórmula: d(mm) = 0.127 * 92^((36-AWG)/39)
+                const d_mm = 0.127 * Math.pow(92, (36 - awg) / 39);
+                const area_mm2 = Math.PI * Math.pow(d_mm, 2) / 4.0;
+                resultDiv.innerHTML += '<p>Diámetro: <strong>' + d_mm.toFixed(4) + ' mm</strong></p>';
+                resultDiv.innerHTML += '<p>Sección: <strong>' + area_mm2.toFixed(4) + ' mm²</strong></p>';
+            }
+            if (diamInput !== '') {
+                const d_mm_val = parseFloat(diamInput);
+                if (isNaN(d_mm_val) || d_mm_val <= 0) {
+                    resultDiv.innerHTML += '<p>Diámetro no válido.</p>';
+                    return;
+                }
+                // Fórmula inversa: AWG = 36 - 39 * log10(d_mm/0.127) / log10(92)
+                const awgCalc = 36 - 39 * (Math.log10(d_mm_val / 0.127) / Math.log10(92));
+                const awgRounded = Math.round(awgCalc * 100) / 100;
+                const area_mm2 = Math.PI * Math.pow(d_mm_val, 2) / 4.0;
+                resultDiv.innerHTML += '<p>Calibre AWG aproximado: <strong>' + awgRounded.toFixed(2) + '</strong></p>';
+                resultDiv.innerHTML += '<p>Sección: <strong>' + area_mm2.toFixed(4) + ' mm²</strong></p>';
+            }
+            if (awgInput === '' && diamInput === '') {
+                resultDiv.innerHTML = '<p>Introduce un calibre AWG o un diámetro en mm.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

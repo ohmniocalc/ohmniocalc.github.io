@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Sección de Cable - Ohmnio Calc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f7fafc;
+            color: #333;
+        }
+        header {
+            background: #2d3748;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #4a5568;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem;
+        }
+        nav a {
+            color: #f7fafc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 1rem 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 0.5rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.4rem;
+            margin-top: 0.2rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.3rem;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #2b6cb0;
+            color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2c5282;
+        }
+        #resultado {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Sección de Cable</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="seccion-cable.html">Sección de Cable</a>
+        <a href="awg-mm.html">Conversor AWG⇆mm</a>
+        <a href="mazo-cables.html">Cálculo de Mazo</a>
+    </nav>
+    <main>
+        <p>Introduce los datos para estimar la sección mínima de un conductor eléctrico según la caída de tensión permitida. Los resultados son orientativos; verifica siempre con la normativa y un profesional.</p>
+        <label for="sistema">Sistema</label>
+        <select id="sistema">
+            <option value="mono">Monofásica</option>
+            <option value="tri">Trifásica</option>
+        </select>
+        <label for="V">Tensión (V)</label>
+        <input type="number" id="V" value="230" step="any">
+        <label for="kW">Potencia (kW)</label>
+        <input type="number" id="kW" value="3" step="any">
+        <label for="L">Distancia (m)</label>
+        <input type="number" id="L" value="20" step="any">
+        <label for="cosphi">Cos φ</label>
+        <input type="number" id="cosphi" value="0.95" step="any">
+        <label for="material">Material</label>
+        <select id="material">
+            <option value="cu">Cobre</option>
+            <option value="al">Aluminio</option>
+        </select>
+        <label for="dv">ΔV permitido (%)</label>
+        <input type="number" id="dv" value="3" step="any">
+        <button onclick="calcularSeccion()">Calcular sección</button>
+        <div id="resultado"></div>
+    </main>
+    <script>
+        function calcularSeccion() {
+            const sistema = document.getElementById('sistema').value;
+            const V = parseFloat(document.getElementById('V').value);
+            const kW = parseFloat(document.getElementById('kW').value);
+            const L = parseFloat(document.getElementById('L').value);
+            const cosphi = parseFloat(document.getElementById('cosphi').value);
+            const material = document.getElementById('material').value;
+            const dv = parseFloat(document.getElementById('dv').value);
+            if (isNaN(V) || isNaN(kW) || isNaN(L) || isNaN(cosphi) || isNaN(dv)) {
+                document.getElementById('resultado').innerHTML = '<p>Por favor completa todos los campos correctamente.</p>';
+                return;
+            }
+            const rho = (material === 'cu') ? 0.0175 : 0.0283;
+            const P = kW * 1000;
+            const I = (sistema === 'mono') ? (P / (V * cosphi)) : (P / (Math.sqrt(3) * V * cosphi));
+            const DVv = V * (dv / 100);
+            const S_raw = (sistema === 'mono') ? ((2 * L * I * rho) / DVv) : ((Math.sqrt(3) * L * I * rho) / DVv);
+            const normalizadas = [1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400];
+            let S_norm = normalizadas.find(n => S_raw <= n);
+            if (!S_norm) {
+                S_norm = Math.ceil(S_raw);
+            }
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = '<p>Corriente estimada: ' + I.toFixed(2) + ' A</p>' +
+                '<p>Sección teórica: ' + S_raw.toFixed(2) + ' mm²</p>' +
+                '<p><strong>Sección recomendada: ' + S_norm + ' mm²</strong></p>' +
+                '<p>Valores orientativos. Verifica con normativa y técnico.</p>';
+        }
+    </script>
+</body>
+</html>
