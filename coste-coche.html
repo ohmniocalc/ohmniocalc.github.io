@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Coste de Coche - Ohmnio Calc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f7fafc;
+            color: #333;
+        }
+        header {
+            background: #2d3748;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #4a5568;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.75rem;
+        }
+        nav a {
+            color: #f7fafc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 1rem 2rem;
+            max-width: 900px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 0.5rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.4rem;
+            margin-top: 0.2rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.3rem;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #2b6cb0;
+            color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2c5282;
+        }
+        #resultado {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 0.3rem;
+        }
+        fieldset {
+            border: 1px solid #cbd5e0;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.3rem;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Coste de Coche</h1>
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="seccion-cable.html">Sección Cable</a>
+        <a href="awg-mm.html">AWG⇆mm</a>
+        <a href="mazo-cables.html">Mazo</a>
+        <a href="resistencias.html">Resistencias</a>
+        <a href="coste-coche.html">Coste Coche</a>
+        <a href="conectores-38999.html">Conectores 38999</a>
+    </nav>
+    <main>
+        <p>Esta calculadora te ayuda a estimar el coste por 100 km de un coche de combustión, eléctrico o híbrido. Puedes introducir tu propio consumo y precios o elegir valores típicos.</p>
+        <fieldset>
+            <legend>Coche de combustión (gasolina/diesel)</legend>
+            <label for="consumoComb">Consumo (L/100 km)</label>
+            <select id="consumoComb">
+                <option value="">Elige categoría...</option>
+                <option value="5">Utilitario (~5 L/100 km)</option>
+                <option value="7">Sedán compacto (~7 L/100 km)</option>
+                <option value="9">SUV medio (~9 L/100 km)</option>
+                <option value="11">Camioneta grande (~11 L/100 km)</option>
+            </select>
+            <input type="number" id="consumoCombManual" placeholder="o introduce tu consumo" step="any" min="0">
+            <label for="precioLitro">Precio combustible (€/L)</label>
+            <input type="number" id="precioLitro" value="1.6" step="any" min="0">
+        </fieldset>
+        <fieldset>
+            <legend>Coche eléctrico</legend>
+            <label for="consumoElec">Consumo (kWh/100 km)</label>
+            <select id="consumoElec">
+                <option value="">Elige categoría...</option>
+                <option value="14">Pequeño urbano (~14 kWh/100 km)</option>
+                <option value="17">Compacto (~17 kWh/100 km)</option>
+                <option value="20">SUV (~20 kWh/100 km)</option>
+            </select>
+            <input type="number" id="consumoElecManual" placeholder="o introduce tu consumo" step="any" min="0">
+            <label for="precioKwh">Precio electricidad (€/kWh)</label>
+            <input type="number" id="precioKwh" value="0.2" step="any" min="0">
+        </fieldset>
+        <fieldset>
+            <legend>Coche híbrido</legend>
+            <label for="porcentajeElec">Porcentaje recorrido en modo eléctrico (%)</label>
+            <input type="number" id="porcentajeElec" value="40" step="any" min="0" max="100">
+            <p>Introduce el consumo de combustible y eléctrico (puedes usar los valores anteriores)</p>
+        </fieldset>
+        <button onclick="calcularCoste()">Calcular costes</button>
+        <div id="resultado"></div>
+    </main>
+    <script>
+        function obtenerConsumo(selectId, manualId) {
+            const sel = document.getElementById(selectId).value;
+            const manual = parseFloat(document.getElementById(manualId).value);
+            if (!isNaN(manual) && manual > 0) return manual;
+            return sel ? parseFloat(sel) : 0;
+        }
+        function calcularCoste() {
+            const consumoComb = obtenerConsumo('consumoComb', 'consumoCombManual');
+            const precioLitro = parseFloat(document.getElementById('precioLitro').value) || 0;
+            const consumoElec = obtenerConsumo('consumoElec', 'consumoElecManual');
+            const precioKwh = parseFloat(document.getElementById('precioKwh').value) || 0;
+            const pctElec = parseFloat(document.getElementById('porcentajeElec').value) || 0;
+            const res = document.getElementById('resultado');
+            let texto = '';
+            if (consumoComb > 0) {
+                const costeComb = consumoComb * precioLitro;
+                texto += '<p>Coste combustible por 100 km: <strong>' + costeComb.toFixed(2) + ' €</strong></p>';
+            }
+            if (consumoElec > 0) {
+                const costeElec = consumoElec * precioKwh;
+                texto += '<p>Coste eléctrico por 100 km: <strong>' + costeElec.toFixed(2) + ' €</strong></p>';
+            }
+            if (consumoComb > 0 && consumoElec > 0) {
+                const pct = Math.max(0, Math.min(100, pctElec)) / 100;
+                const costeHibrido = (consumoElec * precioKwh) * pct + (consumoComb * precioLitro) * (1 - pct);
+                texto += '<p>Coste híbrido por 100 km (con ' + pctElec + '% eléctrico): <strong>' + costeHibrido.toFixed(2) + ' €</strong></p>';
+            }
+            if (texto === '') {
+                texto = '<p>Introduce al menos un tipo de consumo y precio.</p>';
+            }
+            res.innerHTML = texto;
+        }
+    </script>
+</body>
+</html>
