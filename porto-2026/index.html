@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123c69">
+<title>PORTO 2026 · Guía de viaje</title>
+<style>
+:root{
+  --ink:#17324d;--navy:#123c69;--blue:#2467a6;--tile:#2d75b9;--sky:#dceefa;--sea:#6fc4c7;
+  --sand:#f4ead7;--cream:#fffaf1;--paper:#fffefd;--coral:#ed745f;--green:#2f8c70;--gold:#d7a341;
+  --muted:#6b7d8f;--line:#dce6ee;--shadow:0 12px 30px rgba(18,60,105,.10);--r:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#f7fbff 0,#fffaf1 58%,#f8f2e8 100%);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding-bottom:96px}
+a{color:inherit}.app{max-width:760px;margin:0 auto;min-height:100vh}.topbar{position:sticky;top:0;z-index:50;padding:10px 14px;background:rgba(247,251,255,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(220,230,238,.8);display:flex;align-items:center;gap:10px}.brand{display:flex;align-items:center;gap:9px;min-width:0;flex:1}.brandmark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--navy),var(--tile));color:white;display:grid;place-items:center;box-shadow:0 8px 18px rgba(18,60,105,.18);font-weight:900}.brandtxt{min-width:0}.brandtxt b{display:block;font-size:13px;letter-spacing:.12em}.brandtxt span{display:block;color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.iconbtn{width:44px;height:44px;border:0;border-radius:14px;background:white;border:1px solid var(--line);display:grid;place-items:center;font-size:18px;box-shadow:0 5px 14px rgba(18,60,105,.06);cursor:pointer}
+.hero{margin:12px 14px 0;border-radius:30px;overflow:hidden;position:relative;background:linear-gradient(145deg,#123c69 0%,#1a5d8f 48%,#43a8ad 100%);color:white;box-shadow:0 22px 46px rgba(18,60,105,.20);padding:26px 21px 22px}.hero:before{content:"";position:absolute;inset:0;opacity:.18;background-image:linear-gradient(45deg,transparent 42%,rgba(255,255,255,.42) 42% 48%,transparent 48% 52%,rgba(255,255,255,.42) 52% 58%,transparent 58%),linear-gradient(-45deg,transparent 42%,rgba(255,255,255,.22) 42% 48%,transparent 48% 52%,rgba(255,255,255,.22) 52% 58%,transparent 58%);background-size:42px 42px}.hero>*{position:relative}.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:900;color:#d7f6f4}.hero h1{font-size:47px;line-height:.93;margin:8px 0 8px;letter-spacing:-.055em}.hero p{margin:0;color:#eaf7fb;font-size:14px;line-height:1.5;max-width:580px}.hero-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.hero-pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);font-size:11px;font-weight:800}.hero-note{margin-top:14px;border-radius:18px;padding:12px 13px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.17);font-size:12px;line-height:1.5}.privacy{font-size:10px;opacity:.78;margin-top:6px}
+.main{padding:14px}.section{scroll-margin-top:72px;margin-top:20px}.section-head{display:flex;align-items:end;gap:12px;justify-content:space-between;margin-bottom:10px}.section h2{font-size:27px;line-height:1.02;margin:0;letter-spacing:-.035em}.section-sub{font-size:13px;color:var(--muted);line-height:1.45;margin:4px 0 0}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}.today{padding:17px;margin-top:15px;display:grid;gap:13px}.today-top{display:flex;align-items:center;gap:12px}.day-badge{width:54px;height:54px;border-radius:17px;background:linear-gradient(145deg,#e9f5fb,#cbe6f3);display:grid;place-items:center;text-align:center;color:var(--navy);font-weight:900;line-height:1}.day-badge small{display:block;font-size:9px;letter-spacing:.09em}.day-badge strong{font-size:21px}.today h3{margin:0 0 4px;font-size:18px}.muted{color:var(--muted)}.tiny{font-size:11px;line-height:1.45}.today-actions,.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{min-height:44px;border-radius:14px;border:1px solid var(--line);background:#eef7fb;color:var(--navy);font-size:12px;font-weight:850;padding:10px 13px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}.btn.primary{background:var(--navy);color:white;border-color:var(--navy)}.btn.coral{background:#fff0ec;color:#a94c3c;border-color:#f3d2ca}.btn.ghost{background:white}.btn.small{min-height:38px;padding:8px 10px;font-size:11px}.btn.wide{flex:1;min-width:140px}.btn[disabled]{opacity:.48;cursor:not-allowed}.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#f6fafc;border-radius:16px;padding:10px 8px;text-align:center;border:1px solid #e6eef3}.stat b{display:block;font-size:16px}.stat span{font-size:10px;color:var(--muted)}
+.segmented{display:flex;gap:7px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}.segmented::-webkit-scrollbar{display:none}.seg{border:1px solid var(--line);background:white;color:var(--ink);border-radius:999px;min-height:42px;padding:9px 13px;font-weight:800;font-size:12px;white-space:nowrap;cursor:pointer}.seg.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.daycard{overflow:hidden;margin:10px 0}.dayhead{padding:16px 16px 14px;background:linear-gradient(180deg,#fff,#fbfdfe);display:flex;gap:11px;align-items:center}.dateblock{width:52px;height:54px;border-radius:15px;background:var(--navy);color:white;display:grid;place-items:center;text-align:center;line-height:1}.dateblock strong{font-size:19px}.dateblock span{font-size:9px;letter-spacing:.08em;text-transform:uppercase}.daymeta{min-width:0;flex:1}.daymeta h3{font-size:18px;margin:0 0 4px}.chips{display:flex;gap:5px;flex-wrap:wrap}.chip{font-size:10px;font-weight:800;border-radius:999px;background:#eef6fa;color:#41657e;padding:5px 7px}.chip.beach{background:#e7f8f7;color:#2b7775}.chip.market{background:#fff0df;color:#9b6528}.chip.walk{background:#f2effa;color:#6f5c96}.chip.money{background:#eef7ed;color:#4b7844}.daybody{border-top:1px solid #eaf0f4;padding:14px 14px 16px}.route{position:relative}.route:before{content:"";position:absolute;left:12px;top:13px;bottom:13px;width:2px;background:linear-gradient(#91cad2,#dce7ed)}.stop{position:relative;padding:0 0 16px 38px}.stop:last-child{padding-bottom:0}.dot{position:absolute;left:5px;top:7px;width:16px;height:16px;border-radius:50%;background:white;border:4px solid var(--tile);box-shadow:0 0 0 4px #eef7fa}.stop-time{font-size:10px;font-weight:900;letter-spacing:.10em;text-transform:uppercase;color:var(--coral)}.stop-title{font-size:15px;font-weight:900;margin:2px 0 3px}.stop-desc{font-size:12px;color:#536c7e;line-height:1.47}.stop .actions{margin-top:8px}.dayfooter{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:13px;padding-top:12px;border-top:1px dashed #dbe5eb}.budgetline{font-size:11px;color:var(--muted)}.budgetline b{color:var(--ink);font-size:13px}
+.toolbar{position:sticky;top:65px;z-index:35;background:rgba(247,251,255,.92);backdrop-filter:blur(14px);padding:8px 0 5px}.search{position:relative}.search input{width:100%;height:48px;border-radius:16px;border:1px solid var(--line);background:white;padding:0 44px 0 14px;font-size:14px;color:var(--ink);outline:none;box-shadow:0 6px 16px rgba(18,60,105,.05)}.search input:focus{border-color:#80b3d3;box-shadow:0 0 0 4px rgba(45,117,185,.10)}.search span{position:absolute;right:15px;top:13px;font-size:18px}.filterline{display:flex;gap:6px;overflow:auto;margin-top:8px;padding-bottom:4px;scrollbar-width:none}.filterline::-webkit-scrollbar{display:none}.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 10px;font-size:10px;font-weight:800;white-space:nowrap;cursor:pointer}.filter.active{background:#e5f3fb;border-color:#b8d7e9;color:#19517c}.filterpanel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:9px 0 11px}.field{display:grid;gap:4px}.field label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.field select{height:44px;border:1px solid var(--line);background:white;border-radius:13px;padding:0 10px;color:var(--ink);font-weight:750;font-size:12px}.field.full{grid-column:1/-1}.filterhint{font-size:10px;color:var(--muted);margin:4px 2px 10px}
+.grid{display:grid;grid-template-columns:1fr;gap:10px}.placecard{padding:15px}.place-top{display:flex;gap:10px;align-items:flex-start}.place-icon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;font-size:21px;flex:0 0 auto}.place-icon.beach{background:#e8f7f7}.place-icon.food{background:#fff0e7}.place-icon.market{background:#fff5df}.place-main{min-width:0;flex:1}.place-title{font-size:16px;font-weight:900;margin:0 0 3px}.place-meta{font-size:11px;color:var(--muted);line-height:1.35}.fav{border:0;background:transparent;font-size:20px;line-height:1;cursor:pointer;padding:2px}.fav.on{filter:saturate(1.3)}.place-desc{font-size:12px;line-height:1.48;color:#52697a;margin:10px 0}.badges{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}.badge{font-size:10px;font-weight:800;padding:5px 7px;border-radius:999px;background:#f1f6f8;color:#526c7c}.score{display:flex;align-items:center;gap:6px;font-size:11px;margin:6px 0}.score strong{font-size:12px}.bar{height:6px;flex:1;background:#edf2f5;border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#65bfc1,#2677aa);border-radius:999px}
+.compare{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.mini{padding:13px}.mini h4{margin:0 0 5px;font-size:14px}.mini p{margin:0;font-size:11px;color:var(--muted);line-height:1.4}
+.budget-box{padding:17px;background:linear-gradient(145deg,#123c69,#1f6f9b);color:white}.budget-box .mode{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0}.mode button{height:43px;border-radius:13px;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.10);color:white;font-weight:850;cursor:pointer}.mode button.active{background:white;color:var(--navy)}.budget-total{font-size:34px;font-weight:950;letter-spacing:-.045em}.budget-note{font-size:11px;line-height:1.45;color:#dbf2f5}.costgrid{display:grid;grid-template-columns:1fr auto;gap:9px 12px;margin-top:13px;font-size:12px}.costgrid b{text-align:right}.calc{padding:15px;margin-top:10px}.row{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed #e1e8ed}.row:last-child{border-bottom:0}.row label{font-size:12px}.row input{height:40px;border:1px solid var(--line);border-radius:12px;padding:0 9px;font-weight:850;text-align:right;width:100%}.calc-total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:13px}.calc-total b{font-size:22px}
+.notice{border-radius:18px;padding:13px 14px;background:#fff6df;border:1px solid #ecd69b;color:#6f5721;font-size:11px;line-height:1.5;margin:10px 0}.good{background:#eaf7f2;border-color:#cfe8dd;color:#3d6f5f}.danger{background:#fff0ec;border-color:#f1d0c8;color:#8f4d40}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px}.check{display:flex;align-items:center;gap:9px;background:white;border:1px solid var(--line);border-radius:15px;padding:11px;font-size:12px}.check input{width:18px;height:18px;accent-color:var(--navy)}
+.sources details{background:white;border:1px solid var(--line);border-radius:18px;padding:12px 14px}.sources summary{font-size:12px;font-weight:850;cursor:pointer}.sources ul{margin:9px 0 0;padding-left:18px;color:var(--muted);font-size:10px;line-height:1.55}.footer{padding:30px 16px 12px;text-align:center;color:var(--muted);font-size:10px;line-height:1.6}.bottom{position:fixed;z-index:70;left:0;right:0;bottom:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(255,254,253,.94);backdrop-filter:blur(18px);border-top:1px solid var(--line)}.bottom-inner{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.navbtn{border:0;background:transparent;color:#6d8091;min-height:52px;border-radius:13px;font-size:9px;font-weight:800;display:flex;flex-direction:column;gap:4px;align-items:center;justify-content:center;text-decoration:none}.navbtn span:first-child{font-size:18px}.navbtn.active,.navbtn:active{background:#eaf4f8;color:var(--navy)}
+.empty{padding:18px;text-align:center;color:var(--muted);font-size:12px}.print-only{display:none}
+@media(min-width:620px){.grid{grid-template-columns:1fr 1fr}.daycard{margin:12px 0}.hero h1{font-size:58px}.main{padding:18px}.section{margin-top:26px}}
+@media(max-width:340px){.hero h1{font-size:40px}.statrow{grid-template-columns:1fr}.checks{grid-template-columns:1fr}.dayhead{padding:14px 12px}.daybody{padding:12px}.btn{padding:9px 10px}.bottom-inner{gap:0}}
+@media print{
+  @page{size:A4;margin:12mm 11mm 14mm}
+  body{background:white;padding:0;color:#17324d;font-size:10pt}.app{max-width:none}.topbar,.bottom,.toolbar,.iconbtn,.fav,.share-only{display:none!important}.print-only{display:block}.hero{margin:0 0 8mm;border-radius:18px;box-shadow:none;break-inside:avoid;padding:18mm 12mm}.hero h1{font-size:42pt}.main{padding:0}.section{margin-top:8mm;break-before:auto}.section h2{font-size:20pt}.card{box-shadow:none;break-inside:avoid;border-color:#d7e1e8}.daycard{break-inside:auto;display:block!important}.dayhead,.daybody{break-inside:avoid}.grid{grid-template-columns:1fr 1fr}.placecard{break-inside:avoid}.btn{display:none!important}.bottom{display:none}.notice{break-inside:avoid}.section.pagebreak{break-before:page}.sources{font-size:8pt}.privacy{display:none}#sitios{display:none!important}*{overflow-wrap:anywhere}.app,.main,.section,.card{max-width:100%!important}.hero{overflow:hidden}.place-meta{word-break:break-word}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="brandmark">P</div><div class="brandtxt"><b>PORTO 2026</b><span>Guía operativa · 10–16 agosto</span></div></div>
+  <button class="iconbtn" aria-label="Buscar" onclick="document.querySelector('#globalSearch').focus();location.hash='sitios'">⌕</button>
+  <button class="iconbtn share-only" aria-label="Compartir" onclick="sharePlan()">↗</button>
+</header>
+<section class="hero">
+  <div class="kicker">Portugal · verano 2026</div>
+  <h1>PORTO<br>sin fundiros.</h1>
+  <p>4 mañanas de playa, 7 ferias, comida siempre fuera, cero barcos y paseos cortos. Todo pensado para coche + descansos + presupuesto controlado.</p>
+  <div class="hero-row"><span class="hero-pill">4 viajeros</span><span class="hero-pill">6 días activos</span><span class="hero-pill">4 playas</span><span class="hero-pill">7 ferias</span><span class="hero-pill">≤ 50 min andando</span></div>
+  <div class="hero-note"><b>Base:</b> zona Lapa, Porto. En la versión online ocultamos la dirección exacta por privacidad; los botones de Maps usan vuestra ubicación actual.</div>
+</section>
+<main class="main">
+  <section id="hoy" class="section"><div id="todayCard" class="today card"></div>
+    <div class="compare" style="margin-top:10px">
+      <div class="card mini"><h4>🏖️ Mar–Vie</h4><p>Playa 09:00–12:00. Parking al lado y duchas.</p></div>
+      <div class="card mini"><h4>🧺 7 ferias</h4><p>Una por día; sábado dos. Visitas cortas, sin maratón.</p></div>
+      <div class="card mini"><h4>🍽️ Siempre fuera</h4><p>Tascas + pastelarias + 1-2 comidas algo mejores.</p></div>
+      <div class="card mini"><h4>🚫 Sin barcos</h4><p>Todo lo importante puede hacerse gratis o casi gratis.</p></div>
+    </div>
+  </section>
+
+  <section id="dias" class="section">
+    <div class="section-head"><div><h2>Día a día</h2><p class="section-sub">Playa por la mañana de martes a viernes; ferias encajadas sin haceros cruzar la ciudad absurdamente.</p></div></div>
+    <div class="segmented" id="dayTabs"></div>
+    <div id="daysList"></div>
+  </section>
+
+  <section id="sitios" class="section">
+    <div class="section-head"><div><h2>Todos los sitios</h2><p class="section-sub">Buscador global para playa, feria, comida o visita. Por defecto enseña 6 esenciales; filtra o escribe para ver más.</p></div></div>
+    <div class="toolbar"><div class="search"><input id="globalSearch" placeholder="Buscar: praia, bifana, Vandoma…" oninput="renderAllPlaces()"><span>⌕</span></div><div class="filterline" id="typeFilters"></div></div>
+    <div id="allPlaces" class="grid"></div>
+  </section>
+
+  <section id="playas" class="section pagebreak">
+    <div class="section-head"><div><h2>Playas</h2><p class="section-sub">No hay “calas mediterráneas” cerca de Oporto: esto es Atlántico abierto. He priorizado playas con rollo más natural, parking al lado y servicios.</p></div></div>
+    <div class="filterline" id="beachFilters"></div>
+    <div id="beachGrid" class="grid"></div>
+    <div class="notice">🌊 <b>Agua fría:</b> las playas de Matosinhos publican ~19 ºC en verano; Senhor da Pedra ronda 16-18 ºC según la fuente. Bandera y socorrista mandan siempre.</div>
+  </section>
+
+  <section id="mercados" class="section">
+    <div class="section-head"><div><h2>Ferias</h2><p class="section-sub">Las siete que queríais “evitar” 😇, ordenadas por día con dirección y Maps.</p></div></div>
+    <div id="marketGrid" class="grid"></div>
+  </section>
+
+  <section id="comer" class="section pagebreak">
+    <div class="section-head"><div><h2>Comer barato bien</h2><p class="section-sub">Nada de súper: pastelaria + tasca + bifana + pollo + un par de comidas algo mejores.</p></div></div>
+    <div class="notice good"><b>Objetivo realista:</b> desayuno 2,5–4,5 €/persona · comida 7–10,5 € · cena 8–13 €. Grupo: ~70–90 €/día la mayoría de días.</div>
+    <div class="filterpanel">
+      <div class="field"><label>Zona</label><select id="foodZone" onchange="renderFoods()"><option value="all">Todas</option><option>Centro</option><option>Matosinhos/Leça</option><option>Gaia</option><option>Campanhã</option></select></div>
+      <div class="field"><label>Precio</label><select id="foodPrice" onchange="renderFoods()"><option value="all">Todos</option><option value="€">€ · 5-10 aprox.</option><option value="€€">€€ · 10-15 aprox.</option></select></div>
+      <div class="field full"><label>Tipo</label><select id="foodKind" onchange="renderFoods()"><option value="all">Cualquier tipo</option><option value="desayuno">Desayuno / pastelaria</option><option value="bifana">Bifana</option><option value="cachorrinho">Cachorrinho</option><option value="pollo">Pollo / churrasqueira</option><option value="francesinha">Francesinha</option><option value="portuguesa">Portuguesa</option></select></div>
+    </div>
+    <div class="filterhint">Combina zona + precio + tipo. Si no sale nada, relaja un filtro.</div>
+    <div id="foodGrid" class="grid"></div>
+    <div class="notice"><b>Couvert:</b> si os ponen pan, mantequilla, aceitunas, etc., y no lo queréis, pedid que lo retiren y no lo consumáis. Para ahorrar, evitad sentaros en primera línea de Ribeira.</div>
+  </section>
+
+  <section id="presupuesto" class="section pagebreak">
+    <div class="section-head"><div><h2>Presupuesto</h2><p class="section-sub">Sin alojamiento, compras de mercadillo ni viaje Madrid–Oporto. Sí incluye comer fuera, movilidad local y margen.</p></div></div>
+    <div class="budget-box card">
+      <div class="kicker">4 personas · 6 días activos</div>
+      <div class="mode"><button id="modeSave" class="active" onclick="setBudgetMode('save')">Ahorro guay</button><button id="modeNormal" onclick="setBudgetMode('normal')">Normal controlado</button></div>
+      <div class="budget-total" id="budgetRange">597–747 €</div>
+      <div class="budget-note" id="budgetNote">Objetivo sin pasar hambre ni tirar de supermercado. Prioriza tascas, prato do dia, bifanas y desayunos de pastelaria.</div>
+      <div class="costgrid" id="budgetBreakdown"></div>
+    </div>
+    <div class="calc card">
+      <div class="place-title">Calculadora editable</div><div class="place-meta">Se guarda en el móvil.</div>
+      <div class="row"><label>Comida</label><input id="costFood" type="number" inputmode="decimal" oninput="calcBudget()"></div>
+      <div class="row"><label>Gasolina + parking</label><input id="costDrive" type="number" inputmode="decimal" oninput="calcBudget()"></div>
+      <div class="row"><label>Transporte público</label><input id="costTransit" type="number" inputmode="decimal" oninput="calcBudget()"></div>
+      <div class="row"><label>Tasa turística (si no incluida)</label><input id="costTax" type="number" inputmode="decimal" oninput="calcBudget()"></div>
+      <div class="row"><label>Helados / extras</label><input id="costExtra" type="number" inputmode="decimal" oninput="calcBudget()"></div>
+      <div class="calc-total"><span>Total planificado</span><b id="calcTotal">—</b></div>
+    </div>
+    <div class="notice"><b>Tasa turística:</b> 3 €/persona/noche; la exención es para menores de 13. Con 13 años, Alonso ya cuenta. Si son 6 noches y no está incluida: hasta 72 €.</div>
+  </section>
+
+  <section id="practico" class="section">
+    <div class="section-head"><div><h2>Modo viaje</h2><p class="section-sub">Lo que de verdad os evita perder tiempo.</p></div></div>
+    <div class="compare">
+      <div class="card mini"><h4>🚗 Coche</h4><p>Playas, ferias, Gaia y Foz. En centro, aparcar una vez y hacer microbloques cortos.</p></div>
+      <div class="card mini"><h4>🚶 Paseos</h4><p>Bloques de 20–45 min. Si algo obliga a caminar más, se descarta o se cambia por coche/metro.</p></div>
+      <div class="card mini"><h4>🚇 Metro</h4><p>Útil si el centro se pone pesado. Andante simple 2026: Z2 1,40 €, Z3 1,85 €, Z4 2,30 €.</p></div>
+      <div class="card mini"><h4>☀️ Tiempo</h4><p>Previsión consultada 08/08: 26–28 ºC, mayormente soleado/húmedo. Revisar cada mañana.</p></div>
+    </div>
+    <h3 style="font-size:16px;margin:18px 0 9px">Checklist</h3>
+    <div class="checks" id="checkGrid"></div>
+    <div class="notice danger"><b>Sábado 15 = festivo nacional.</b> Vandoma aparece programada oficialmente en agosto 2026 y Senhora da Hora es semanal; aun así, comprobad la víspera por si hay cambios operativos.</div>
+    <div class="notice good"><b>Emergencias:</b> 112.</div>
+  </section>
+
+  <section class="section sources">
+    <details><summary>Datos y fuentes verificadas · 08/08/2026</summary><ul>
+      <li>Câmara Municipal de Matosinhos: Praia da Memória, Aterro, Angeiras Sul; parkings oficiales.</li>
+      <li>Câmara Municipal de Gondomar: Feira de Gondomar, jueves 07:00–19:00.</li>
+      <li>Câmara Municipal de Matosinhos: Santana los viernes por la tarde; Senhora da Hora los sábados por la mañana.</li>
+      <li>Agenda Porto: Feira da Vandoma, sábados 08:00–13:00, programación agosto 2026.</li>
+      <li>VisitPortugal / Praias.pt: Senhor da Pedra y servicios.</li>
+      <li>VisitMaia: Feira/Mercado de Pedrouços, martes 07:00–13:00.</li>
+      <li>CM Gaia: Feira dos Carvalhos a retalho, miércoles 06:00–16:30.</li>
+      <li>Fichas actuales de Conga, Gazela, Casa Expresso, O Astro, Pedro dos Frangos, Casa Guedes, Sai Cão, Rosinha y Knaipa.</li>
+      <li>Los horarios con menor respaldo oficial siguen marcados como referencia/confirmar.</li>
+    </ul></details>
+  </section>
+</main>
+<footer class="footer">PORTO 2026 · guía móvil privada de viaje · versión pública sin dirección del alojamiento<br>Datos revisados 08/08/2026 · horarios y precios pueden cambiar.</footer>
+</div>
+<nav class="bottom"><div class="bottom-inner"><a class="navbtn" href="#hoy"><span>◉</span><span>Hoy</span></a><a class="navbtn" href="#dias"><span>▦</span><span>Días</span></a><a class="navbtn" href="#playas"><span>≈</span><span>Playas</span></a><a class="navbtn" href="#comer"><span>⌁</span><span>Comer</span></a><a class="navbtn" href="#presupuesto"><span>€</span><span>Gasto</span></a></div></nav>
+<script>
+const mapsSearch=q=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+const mapsDir=q=>`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}&travelmode=driving`;
+const markets=[
+ {id:'espinho',type:'market',name:'Feira Semanal de Espinho',day:'Lunes 10',hours:'07:00–19:00',address:'Rua 33 / Rua 22, 4500-263 Espinho',emoji:'🧺',price:'Gratis',tags:['ropa','calzado','enorme'],verified:'Referencia práctica',desc:'La más grande del plan. No intentéis verla entera: 45-50 min y fuera.'},
+ {id:'areosa',type:'market',name:'Feira / Mercado de Pedrouços (Areosa)',day:'Martes 11',hours:'07:00–13:00',address:'Rua António Feliciano de Castilho, 4425-435 Pedrouços, Maia',emoji:'🧺',price:'Gratis',tags:['martes','ropa','alimentación','oficial'],verified:'VisitMaia · oficial',desc:'Todos los martes de 07:00 a 13:00. Alimentación, textil hogar y vestuario. Visita de 45-60 min.'},
+ {id:'carvalhos',type:'market',name:'Feira dos Carvalhos · retalho',day:'Miércoles 12',hours:'06:00–16:30',address:'Rua Feira Nova / Rua Gonçalo Castro, Carvalhos, Pedroso, Vila Nova de Gaia',emoji:'🧺',price:'Gratis',tags:['miércoles','tradicional','oficial'],verified:'CM Gaia · oficial',desc:'La feria minorista de los miércoles figura de 06:00 a 16:30. Visita objetivo: 60-75 min.'},
+ {id:'gondomar',type:'market',name:'Feira de Gondomar (São Cosme)',day:'Jueves 13',hours:'07:00–19:00',address:"Rua Ala Nun'Álvares, Gondomar",emoji:'🧺',price:'Gratis',tags:['jueves','oficial'],verified:'Oficial',desc:'Horario publicado por la Câmara Municipal de Gondomar.'},
+ {id:'santana',type:'market',name:'Feira Semanal de Santana',day:'Viernes 14',hours:'viernes por la tarde',address:'Parque de Santana, Leça do Balio',emoji:'🧺',price:'Gratis',tags:['viernes','tarde','ropa'],verified:'Oficial: tarde',desc:'La Câmara de Matosinhos la sitúa todos los viernes por la tarde.'},
+ {id:'senhora',type:'market',name:'Feira da Senhora da Hora',day:'Sábado 15',hours:'mañana · ref. 08:00–13:00',address:'Parque Dr. João Gomes Laranjo, Senhora da Hora',emoji:'🧺',price:'Gratis',tags:['sábado','ropa','calzado'],verified:'Oficial: mañana',desc:'Especialmente fuerte en confección y vestuario; no hace falta recorrerla entera.'},
+ {id:'vandoma',type:'market',name:'Feira da Vandoma',day:'Sábado 15',hours:'08:00–13:00',address:'Praça Vandoma, R. da Estação de Contumil, Porto',emoji:'🧺',price:'Gratis',tags:['sábado','segunda mano','rastro'],verified:'Oficial agosto 2026',desc:'Ropa usada, objetos, libros, herramientas y cacharreo. Confirmada en Agenda Porto para agosto 2026.'}
+];
+const beaches=[
+ {id:'memoria',type:'beach',name:'Praia da Memória',day:'Martes 11',address:'Av. D. Pedro IV, 4455-526 Perafita, Matosinhos',parking:'Parque da Praia da Memória, Rua de Almeiriga Norte, Perafita',emoji:'🏖️',drive:'~20-25 min',walk:'0-5 min desde parking',water:'~19 ºC',vibe:'Dunas + arenal, menos urbana',score:92,tags:['parking gratis','duchas','familia','menos masificada','accesible'],desc:'Muy buena para vuestro estilo: gran parking oficial gratuito de 160 plazas, baños, duchas, bar, vigilancia y acceso fácil.',verified:'Oficial CM Matosinhos'},
+ {id:'senhor',type:'beach',name:'Praia do Senhor da Pedra',day:'Miércoles 12',address:'Alameda do Senhor da Pedra, 4405-029 Miramar, Vila Nova de Gaia',parking:'Parque / Alameda do Senhor da Pedra, Miramar',emoji:'⛱️',drive:'~25-30 min',walk:'2-6 min',water:'~16-18 ºC',vibe:'Capilla sobre roca · la más fotogénica',score:95,tags:['paisaje','familia','duchas','parking cercano'],desc:'La más “wow” sin patear: capilla sobre la roca, parking junto a la zona y servicios. Llegad antes de 10:00 para aparcar fácil.',verified:'VisitPortugal + Praias.pt'},
+ {id:'aterro',type:'beach',name:'Praia do Aterro',day:'Jueves 13',address:'Av. da Liberdade / Rua Belchior Robles, Leça da Palmeira',parking:'Parque da Praia do Aterro, Avenida da Liberdade, Leça da Palmeira',emoji:'🌊',drive:'~20-25 min',walk:'0-5 min',water:'~19 ºC',vibe:'Roca + arena + vegetación',score:94,tags:['parking gratis','duchas','menos masificada','paisaje','familia'],desc:'La más cercana a “cala escondida” que metería sin complicaros: entorno natural, 525 plazas gratuitas, baños, duchas, bar y vigilancia. Ojo al entrar al mar: se pierde pie rápido en la rompiente.',verified:'Oficial CM Matosinhos'},
+ {id:'angeiras',type:'beach',name:'Praia de Angeiras Sul (Praia Azul)',day:'Viernes 14',address:'Av. da Praia de Angeiras 99, 4455-191 Lavra, Matosinhos',parking:'Estacionamento Praia de Angeiras Sul, Lavra',emoji:'🌴',drive:'~25-30 min',walk:'0-5 min',water:'~19 ºC',vibe:'Arena + roca, pueblo costero',score:90,tags:['parking gratis','duchas','familia','paisaje','accesible'],desc:'Arenal blanco, roca, duchas, baños, bar, vigilancia y parking ordenado gratuito. Suele sentirse menos ciudad que Matosinhos.',verified:'Oficial CM Matosinhos'},
+ {id:'matosinhos',type:'beach',name:'Praia de Matosinhos · BACKUP',day:'Backup',address:'Praia de Matosinhos, Av. Norton de Matos, Matosinhos',parking:'Parque de estacionamento junto à Praia de Matosinhos',emoji:'🛟',drive:'~20 min',walk:'0-5 min',water:'~19 ºC',vibe:'Fácil, urbana, muchos servicios',score:78,tags:['familia','duchas','backup','parking cercano'],desc:'No es la más bonita, pero es la mejor red de seguridad si viento, mar o parking os fastidian otra playa.',verified:'Backup práctico'}
+];
+const foods=[
+ {id:'conga',type:'food',name:'Conga',zone:'Centro',price:'€',kind:'bifana',meal:['comida','cena'],address:'Rua do Bonjardim 318, Porto',hours:'L-S 11:30–22:00',emoji:'🥪',tags:['familia','barato','bifana'],desc:'Clásico de bifanas. Muy útil para comer bien y rápido sin pagar zona turística.',verified:'Ficha actual'},
+ {id:'gazela',type:'food',name:'Gazela',zone:'Centro',price:'€',kind:'cachorrinho',meal:['comida','cena'],address:'Travessa do Cimo de Vila 4, Porto',hours:'L-V 12:00–22:30',emoji:'🌭',tags:['icónico','barato','cola'],desc:'Cachorrinho portuense. Muy buena relación precio/experiencia, pero puede haber cola.',verified:'Ficha actual'},
+ {id:'casaexpresso',type:'food',name:'Casa Expresso',zone:'Centro',price:'€',kind:'portuguesa',meal:['desayuno','comida','cena'],address:'Praça de Carlos Alberto 73, Porto',hours:'Mar-Sáb ~08:00/08:30–22:30',emoji:'🍲',tags:['familia','barato','desayuno'],desc:'Tasca muy bien valorada, 5-10 €. Encaja perfecto con Carmo/Clérigos.',verified:'Ficha actual'},
+ {id:'astro',type:'food',name:'O Astro',zone:'Campanhã',price:'€',kind:'bifana',meal:['comida','cena'],address:'Rua da Estação 16-18, Porto',hours:'L-X 11–21 · J-V 11–22',emoji:'🥪',tags:['familia','barato','bifana'],desc:'Frente a Campanhã. Bifanas y petiscos; gran opción el sábado tras Vandoma.',verified:'Ficha actual'},
+ {id:'pedro',type:'food',name:'Pedro dos Frangos',zone:'Centro',price:'€€',kind:'pollo',meal:['comida'],address:'Rua do Bonjardim 223/312, Porto',hours:'11:30–15:00',emoji:'🍗',tags:['familia','pollo','10-15€'],desc:'Pollo asado y cocina tradicional. Muy fácil para cuatro y porciones de verdad.',verified:'Ficha actual'},
+ {id:'guedes',type:'food',name:'Casa Guedes Tradicional',zone:'Centro',price:'€€',kind:'portuguesa',meal:['comida','cena'],address:'Praça dos Poveiros 130, Porto',hours:'11:00–23:00/23:30',emoji:'🥩',tags:['pernil','familia','popular'],desc:'Pernil y cocina portuguesa. Popular y con posible cola; mejor ir fuera de hora punta.',verified:'Ficha actual'},
+ {id:'saicao',type:'food',name:'Sai Cão',zone:'Centro',price:'€€',kind:'francesinha',meal:['comida','cena'],address:'Rua do Bonjardim 635A, Porto',hours:'09:30–22:30/23:00',emoji:'🍽️',tags:['familia','francesinha','10-15€'],desc:'Buena opción si queréis francesinha/cocina portuguesa sin ir a los sitios más turísticos.',verified:'Ficha actual'},
+ {id:'rosinha',type:'food',name:'Rosinha',zone:'Matosinhos/Leça',price:'€',kind:'snack',meal:['desayuno','comida'],address:'Rua de Almeiriga Norte 2452, Perafita',hours:'Mar-Dom 09:00–20:00',emoji:'☕',tags:['playa memoria','parking gratis','5-10€'],desc:'Snack bar cerca de Praia da Memória. 5-10 €, café y comida rápida; parking gratuito.',verified:'Ficha actual'},
+ {id:'knaipa',type:'food',name:'Knaipa Churrasqueira',zone:'Matosinhos/Leça',price:'€',kind:'pollo',meal:['comida','cena'],address:'Rua do Vareiro 155, Leça da Palmeira',hours:'Confirmar el día',emoji:'🍗',tags:['familia','barato','grill'],desc:'Churrasqueira económica y familiar para cuadrar con Aterro/Leça.',verified:'Ficha actual, horario variable'},
+ {id:'prestige',type:'food',name:'Café Snack-Bar Prestige',zone:'Matosinhos/Leça',price:'€',kind:'snack',meal:['desayuno','comida'],address:'Rua da Agudela 73, Lavra',hours:'Mar-Vie/Sáb ~07:00–22:00',emoji:'☕',tags:['5-10€','desayuno','familia'],desc:'Snack-bar 5-10 € en Lavra; buena parada sencilla para el día de Angeiras.',verified:'Ficha actual'},
+ {id:'miramar',type:'food',name:'Restaurante Miramar',zone:'Gaia',price:'€€',kind:'portuguesa',meal:['comida','cena'],address:'Avenida João Paulo II 520, Arcozelo, Vila Nova de Gaia',hours:'12:00–16:00 · 19:00–23:30',emoji:'🍽️',tags:['gaia','familia','tradicional'],desc:'Opción práctica cerca de Miramar si queréis sentaros a comer después de la playa.',verified:'Ficha actual'},
+ {id:'celeste',type:'food',name:'Grupo Celeste · cerca de la base',zone:'Centro',price:'€',kind:'desayuno',meal:['desayuno','comida'],address:'Rua da Lapa 48, Porto',hours:'ref. 07:00–20:00/22:00',emoji:'🥐',tags:['desayuno','barato','pastelaria'],desc:'Padaria/pastelaria económica en Lapa. Muy útil para desayunos sin montar logística.',verified:'Horario actualizado 2026 en directorio local'},
+ {id:'confeitarialapa',type:'food',name:'Confeitaria da Lapa',zone:'Centro',price:'€',kind:'desayuno',meal:['desayuno'],address:'Rua da Boavista 377, Porto',hours:'07:00–20:00 · finde 07:00–14:00',emoji:'🥐',tags:['desayuno','pastelaria','familia'],desc:'Desayuno clásico de pastelaria; alternativa si queréis salir ya desayunados.',verified:'Ficha actual'}
+];
+const visits=[
+ {id:'bolhao',type:'visit',name:'Mercado do Bolhão',day:'Martes 11',address:'Mercado do Bolhão, Porto',emoji:'🏛️',tags:['centro','azulejos'],desc:'Visita corta y visual; encaja con Santa Catarina y São Bento.'},
+ {id:'saobento',type:'visit',name:'Estação de São Bento',day:'Martes 11',address:'Praça de Almeida Garrett, Porto',emoji:'🚉',tags:['centro','azulejos'],desc:'Vestíbulo de azulejos; merece mucho la pena y no exige paseo largo.'},
+ {id:'jardimmorro',type:'visit',name:'Jardim do Morro / Serra do Pilar',day:'Miércoles 12',address:'Jardim do Morro, Vila Nova de Gaia',emoji:'🌇',tags:['mirador','gaia'],desc:'Atardecer con vistas del Douro; haced solo 20-35 min de paseo.'},
+ {id:'foz',type:'visit',name:'Farolim de Felgueiras / Foz',day:'Jueves 13',address:'Avenida Dom Carlos I 382, Porto',emoji:'🌅',tags:['mar','paseo corto'],desc:'Parada de 20-30 min al atardecer, gratuita y muy fácil en coche.'},
+ {id:'clerigos',type:'visit',name:'Clérigos + Carmo exterior',day:'Sábado 15',address:'Torre dos Clérigos, Porto',emoji:'⛪',tags:['centro','gratis exterior'],desc:'Microbloque de 25-35 min; exterior y calles de alrededor. Sin pagar entradas.'},
+ {id:'ribeira',type:'visit',name:'Ribeira',day:'Sábado 15',address:'Ribeira Square, Porto',emoji:'🌉',tags:['centro','paseo corto'],desc:'Último paseo de 25-35 min. Para comer barato, no sentarse en primera línea.'}
+];
+const dayPlans=[
+ {key:'10',label:'Lun 10',title:'Llegada + Espinho sin forzar',walk:'~45 min',drive:'~30 min',money:[55,75],stops:[
+   ['15:00–16:00','Llegada + check-in','Dejad maletas y 30-45 min de descanso. Nada de empezar corriendo.',null],
+   ['16:45','Coche a Espinho','Salid con margen. La feria es enorme: objetivo, no exhaustividad.',mapsDir(markets[0].address)],
+   ['17:20–18:40','Feira Semanal de Espinho','Recorred solo la zona que os llame la atención. Máximo 45-50 min andando.',mapsSearch(markets[0].address)],
+   ['19:00','Praia da Baía · paseo corto opcional','20-30 min de mar/atardecer. No cuenta como uno de los 4 días de playa.',mapsSearch('Praia da Baía, Espinho')],
+   ['20:30','Vuelta a Porto + cena','Mejor volver a Lapa y cenar cerca de la base: ahorráis y no dependéis del horario de Espinho. Objetivo 8-12 €/persona.',mapsSearch('Sai Cão Rua do Bonjardim 635A Porto')]
+ ]},
+ {key:'11',label:'Mar 11',title:'Praia da Memória + Areosa + Porto corto',walk:'~40-50 min',drive:'20-25 min',money:[75,90],stops:[
+   ['08:15','Desayuno de pastelaria','Café/galão + croissant/torrada. Objetivo 2,5-4,5 €/persona.',mapsSearch('Grupo Celeste Rua da Lapa 48 Porto')],
+   ['09:00–12:00','Praia da Memória','La playa más cómoda del plan: parking oficial gratis, duchas, baños y acceso directo.',mapsSearch(beaches[0].address)],
+   ['12:15','Comida cerca','Rosinha es el comodín barato junto a la zona.',mapsSearch(foods.find(x=>x.id==='rosinha').address)],
+   ['12:45–13:45','Feira / Mercado de Pedrouços','Horario oficial 07:00-13:00: llegad antes de la una. 45-60 min y rumbo al centro.',mapsSearch(markets[1].address)],
+   ['16:00–18:00','Bolhão + Santa Catarina + São Bento','Un solo parking / metro y paseo efectivo máximo ~45 min con pausa de café.',mapsSearch('Mercado do Bolhão, Porto')],
+   ['20:00','Cena económica centro','Conga o Gazela según cola. Si está lleno, Casa Expresso.',mapsSearch('Conga Rua Bonjardim 318 Porto')]
+ ]},
+ {key:'12',label:'Mié 12',title:'Senhor da Pedra + Carvalhos + mirador',walk:'~35-45 min',drive:'25-30 min',money:[75,90],stops:[
+   ['08:15','Desayuno cerca de casa','Otra pastelaria local. No hace falta brunch turístico.',mapsSearch('Confeitaria da Lapa Porto')],
+   ['09:00–12:00','Praia do Senhor da Pedra','Llegad antes de 10:00. Capilla sobre la roca, parking al lado, fotos y baño.',mapsSearch(beaches[1].address)],
+   ['12:15','Comida por Miramar / Gaia','Sentados, pero sin primera línea cara. Restaurante Miramar como referencia.',mapsSearch(foods.find(x=>x.id==='miramar').address)],
+   ['13:15–14:30','Feira dos Carvalhos · retalho','Horario oficial 06:00-16:30. 60-75 min como máximo; no hace falta recorrerla entera.',mapsSearch(markets[2].address)],
+   ['16:00–17:30','Vuelta + descanso','Ducha, siesta o aire acondicionado. Guardad piernas.',null],
+   ['18:30–20:00','Jardim do Morro / Serra do Pilar','Aparcad cerca y haced 20-35 min de mirador. No hace falta cruzar andando todo el puente.',mapsSearch('Jardim do Morro, Vila Nova de Gaia')]
+ ]},
+ {key:'13',label:'Jue 13',title:'Aterro + Gondomar + Foz',walk:'~30-40 min',drive:'20-25 min',money:[75,90],stops:[
+   ['08:15','Desayuno barato','Pastelaria y carretera.',mapsSearch('Grupo Celeste Rua da Lapa 48 Porto')],
+   ['09:00–12:00','Praia do Aterro','Mi favorita para vuestro criterio: entorno más natural + 525 plazas gratis. Ojo con el mar al entrar.',mapsSearch(beaches[2].address)],
+   ['12:15','Comida','Knaipa Churrasqueira o una tasca de Leça con prato do dia.',mapsSearch(foods.find(x=>x.id==='knaipa').address)],
+   ['13:30–15:00','Feira de Gondomar','Horario oficial muy amplio; 60 min bastan.',mapsSearch(markets[3].address)],
+   ['16:00–17:30','Descanso','Volved a Lapa y reset.',null],
+   ['18:00–20:00','Foz + Farolim de Felgueiras','Paseo corto frente al mar. Gratis y sin agenda rígida.',mapsSearch('Farolim de Felgueiras Porto')]
+ ]},
+ {key:'14',label:'Vie 14',title:'Angeiras + Santana',walk:'~30-40 min',drive:'25-30 min',money:[75,95],stops:[
+   ['08:15','Desayuno','Café + pastel/tostada; rápido.',mapsSearch('Grupo Celeste Rua da Lapa 48 Porto')],
+   ['09:00–12:00','Praia de Angeiras Sul','Parking gratis, playa vigilada, duchas y pueblo costero. Muy cómoda para los cuatro.',mapsSearch(beaches[3].address)],
+   ['12:15–13:30','Comida por Lavra / Leça','Prestige si queréis barato/rápido; pescado solo si ese día os apetece gastar algo más.',mapsSearch(foods.find(x=>x.id==='prestige').address)],
+   ['15:00–17:00','Feira Semanal de Santana','La web municipal la sitúa el viernes por la tarde. Buen encaje después de playa/comida.',mapsSearch(markets[4].address)],
+   ['17:30','Descanso','Sin obligación de rellenar la tarde.',null],
+   ['20:00','Cena','Podéis repetir el sitio que más os haya gustado o ir a Sai Cão.',mapsSearch(foods.find(x=>x.id==='saicao').address)]
+ ]},
+ {key:'15',label:'Sáb 15',title:'Dos ferias + final de Porto',walk:'2 × 30-35 min',drive:'10-20 min',money:[85,105],stops:[
+   ['08:15','Desayuno','Temprano para pillar los mercados bien.',mapsSearch('Grupo Celeste Rua da Lapa 48 Porto')],
+   ['09:00–10:20','Feira da Senhora da Hora','Ropa/calzado. No intentar recorrerla completa.',mapsSearch(markets[5].address)],
+   ['10:45–12:15','Feira da Vandoma','Segunda mano y cacharreo. Cierra a las 13:00.',mapsSearch(markets[6].address)],
+   ['12:30–13:30','BONUS: Velharias, solo si tenéis ganas','Tercer sábado del mes. Si estáis cansados, se elimina sin remordimientos.',mapsSearch('Praça Dr. Francisco Sá Carneiro 293, Porto')],
+   ['13:45','Comida','O Astro está muy bien colocado tras Contumil/Campanhã.',mapsSearch(foods.find(x=>x.id==='astro').address)],
+   ['16:00–18:30','Centro final en 2 microbloques','A) Clérigos/Carmo 25-35 min. Café. B) Ribeira 25-35 min. Nada de pateada maratoniana.',mapsSearch('Torre dos Clérigos, Porto')],
+   ['20:30','Cena final','Francesinha o portuguesa. Sai Cão / Casa Guedes según ganas y cola.',mapsSearch(foods.find(x=>x.id==='saicao').address)]
+ ]},
+ {key:'16',label:'Dom 16',title:'Vuelta',walk:'0 min',drive:'salida',money:[10,25],stops:[['Mañana','Salida sin agenda','Equipaje, llaves, gasolina y vuelta. No meter turismo por meter.',null]]}
+];
+const allPlaces=[...beaches,...markets,...foods,...visits];
+let activeDay='10',activeType='all',beachFilter='all',budgetMode='save';
+const storeGet=(k,f='')=>{try{return localStorage.getItem(k)??f}catch(e){return f}};
+const storeSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+const favs=new Set(JSON.parse(storeGet('portoFavs','[]')||'[]'));
+function money(n){return n.toLocaleString('es-ES')+' €'}
+function mapButtons(p){let s=`<a class="btn small primary" target="_blank" rel="noopener" href="${mapsSearch(p.address)}">Maps</a><a class="btn small" target="_blank" rel="noopener" href="${mapsDir(p.address)}">Ir</a>`;if(p.parking)s+=`<a class="btn small ghost" target="_blank" rel="noopener" href="${mapsSearch(p.parking)}">Parking</a>`;return s}
+function toggleFav(id){favs.has(id)?favs.delete(id):favs.add(id);storeSet('portoFavs',JSON.stringify([...favs]));renderAllPlaces();renderBeaches();renderMarkets();renderFoods()}
+function renderToday(){const el=document.getElementById('todayCard');const now=new Date();let k=(now.getFullYear()===2026&&now.getMonth()===7&&now.getDate()>=10&&now.getDate()<=16)?String(now.getDate()):activeDay;let d=dayPlans.find(x=>x.key===k)||dayPlans[0];let dm=dayMoney(d);el.innerHTML=`<div class="today-top"><div class="day-badge"><div><small>${d.label.split(' ')[0]}</small><strong>${d.key}</strong></div></div><div><h3>${now.getFullYear()===2026&&now.getMonth()===7&&now.getDate()>=10&&now.getDate()<=16?'Hoy':'Viaje preparado'}</h3><div class="muted tiny">${d.title}</div></div></div><div class="statrow"><div class="stat"><b>${d.walk}</b><span>andar</span></div><div class="stat"><b>${d.drive}</b><span>coche</span></div><div class="stat"><b>${dm[0]}–${dm[1]} €</b><span>grupo</span></div></div><div class="badges"><span class="badge">💸 Modo: ${budgetMode==='save'?'ahorro guay':'normal'}</span></div><div class="today-actions"><a class="btn primary wide" href="#dias" onclick="selectDay('${d.key}')">Ver día</a><button class="btn wide" onclick="openDayRoute('${d.key}')">Ruta del día</button></div>`}
+function renderDayTabs(){document.getElementById('dayTabs').innerHTML=dayPlans.map(d=>`<button class="seg ${activeDay===d.key?'active':''}" onclick="selectDay('${d.key}')">${d.label}</button>`).join('')}
+function selectDay(k){activeDay=k;renderDayTabs();renderDays();renderToday();storeSet('portoActiveDay',k);setTimeout(()=>document.getElementById('day-'+k)?.scrollIntoView({behavior:'smooth',block:'start'}),30)}
+function renderDays(){const holder=document.getElementById('daysList');holder.innerHTML=dayPlans.map((d,i)=>{let dm=dayMoney(d);return `<article class="daycard card" id="day-${d.key}" ${activeDay!==d.key?'style="display:none"':''}><div class="dayhead"><div class="dateblock"><div><strong>${d.key}</strong><span>AGO</span></div></div><div class="daymeta"><h3>${d.title}</h3><div class="chips"><span class="chip walk">🚶 ${d.walk}</span><span class="chip">🚗 ${d.drive}</span><span class="chip money">€ ${dm[0]}–${dm[1]}</span>${d.key>='11'&&d.key<='14'?'<span class="chip beach">🏖 mañana</span>':''}${d.key!=='16'?'<span class="chip market">🧺 feria</span>':''}</div></div></div><div class="daybody"><div class="route">${d.stops.map(s=>`<div class="stop"><span class="dot"></span><div class="stop-time">${s[0]}</div><div class="stop-title">${s[1]}</div><div class="stop-desc">${s[2]}</div>${s[3]?`<div class="actions"><a class="btn small" target="_blank" rel="noopener" href="${s[3]}">Abrir Maps</a></div>`:''}</div>`).join('')}</div><div class="dayfooter"><div class="budgetline">Objetivo día · <b>${dm[0]}–${dm[1]} € los 4</b></div><button class="btn small primary" onclick="openDayRoute('${d.key}')">Ruta del día</button></div></div></article>`}).join('')}
+function openNextStop(k){const d=dayPlans.find(x=>x.key===k);const first=d.stops.find(s=>s[3]);if(first)window.open(first[3],'_blank')}
+function extractMapTarget(url){try{const u=new URL(url);return decodeURIComponent(u.searchParams.get('destination')||u.searchParams.get('query')||'')}catch(e){return ''}}
+function openDayRoute(k){const d=dayPlans.find(x=>x.key===k);const pts=d.stops.map(s=>s[3]?extractMapTarget(s[3]):'').filter(Boolean);if(!pts.length)return;if(pts.length===1){window.open(mapsDir(pts[0]),'_blank');return}const dest=pts[pts.length-1],wps=pts.slice(0,-1).slice(0,8);const url=`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(dest)}&travelmode=driving${wps.length?'&waypoints='+encodeURIComponent(wps.join('|')):''}`;window.open(url,'_blank')}
+function renderTypeFilters(){let ts=[['all','Todo'],['beach','Playas'],['market','Ferias'],['food','Comer'],['visit','Visitas'],['fav','★ Guardados']];document.getElementById('typeFilters').innerHTML=ts.map(x=>`<button class="filter ${activeType===x[0]?'active':''}" onclick="activeType='${x[0]}';renderTypeFilters();renderAllPlaces()">${x[1]}</button>`).join('')}
+function placeCard(p){return `<article class="placecard card"><div class="place-top"><div class="place-icon ${p.type}">${p.emoji||'📍'}</div><div class="place-main"><div class="place-title">${p.name}</div><div class="place-meta">${[p.day,p.zone,p.hours,p.drive].filter(Boolean).join(' · ')}</div></div><button class="fav ${favs.has(p.id)?'on':''}" aria-label="Favorito" onclick="toggleFav('${p.id}')">${favs.has(p.id)?'★':'☆'}</button></div><div class="place-desc">${p.desc||''}</div>${p.vibe?`<div class="score"><strong>${p.vibe}</strong><div class="bar"><i style="width:${p.score}%"></i></div><span>${p.score}/100</span></div>`:''}<div class="badges">${(p.tags||[]).slice(0,6).map(t=>`<span class="badge">${t}</span>`).join('')}${p.water?`<span class="badge">🌡 ${p.water}</span>`:''}${p.walk?`<span class="badge">🚶 ${p.walk}</span>`:''}</div><div class="place-meta">📍 ${p.address}</div><div class="actions" style="margin-top:10px">${mapButtons(p)}</div></article>`}
+const featuredIds=['aterro','senhor','memoria','vandoma','conga','casaexpresso'];
+function renderAllPlaces(){const q=(document.getElementById('globalSearch')?.value||'').toLowerCase().trim();let data=allPlaces.filter(p=>(activeType==='all'||p.type===activeType||(activeType==='fav'&&favs.has(p.id))));if(q)data=data.filter(p=>[p.name,p.address,p.zone,p.kind,p.day,p.hours,...(p.tags||[])].filter(Boolean).join(' ').toLowerCase().includes(q));else if(activeType==='all')data=data.filter(p=>featuredIds.includes(p.id));document.getElementById('allPlaces').innerHTML=data.length?data.map(placeCard).join(''):'<div class="empty card">No hay resultados con esos filtros.</div>'}
+function renderBeaches(){const opts=[['all','Todas'],['parking gratis','Parking gratis'],['menos masificada','Más tranquila'],['duchas','Duchas'],['familia','Familia'],['paisaje','Más bonita']];document.getElementById('beachFilters').innerHTML=opts.map(x=>`<button class="filter ${beachFilter===x[0]?'active':''}" onclick="beachFilter='${x[0]}';renderBeaches()">${x[1]}</button>`).join('');let data=beachFilter==='all'?beaches:beaches.filter(p=>p.tags.includes(beachFilter));document.getElementById('beachGrid').innerHTML=data.map(placeCard).join('')}
+function renderMarkets(){document.getElementById('marketGrid').innerHTML=markets.map(placeCard).join('')}
+function renderFoods(){let zone=document.getElementById('foodZone')?.value||'all',price=document.getElementById('foodPrice')?.value||'all',kind=document.getElementById('foodKind')?.value||'all';let data=foods.filter(p=>(zone==='all'||p.zone===zone)&&(price==='all'||p.price===price)&&(kind==='all'||p.kind===kind||p.meal.includes(kind)));document.getElementById('foodGrid').innerHTML=data.length?data.map(placeCard).join(''):'<div class="empty card">No hay coincidencias. Prueba a quitar un filtro.</div>'}
+function dayMoney(d){if(budgetMode==='save'||d.key==='16')return d.money;return [d.money[0]+10,d.money[1]+15]}
+const budgetModes={save:{range:'597–747 €',note:'Objetivo sin pasar hambre ni tirar de supermercado. Prioriza tascas, prato do dia, bifanas y desayunos de pastelaria.',vals:[490,55,10,72,35],break:[['Comida','450–520 €'],['Gasolina + parking','45–65 €'],['Transporte público','0–25 €'],['Atracciones','0–20 €'],['Tasa turística','hasta 72 €'],['Extras','30–45 €']]},normal:{range:'712–942 €',note:'Más margen para pescado, francesinha, cafés/helados y escoger restaurante sin mirar cada euro.',vals:[595,70,15,72,55],break:[['Comida','540–650 €'],['Gasolina + parking','55–80 €'],['Transporte público','0–30 €'],['Atracciones','0–40 €'],['Tasa turística','hasta 72 €'],['Extras','45–70 €']]}};
+function setBudgetMode(m){budgetMode=m;storeSet('portoBudgetMode',m);document.getElementById('modeSave').classList.toggle('active',m==='save');document.getElementById('modeNormal').classList.toggle('active',m==='normal');let b=budgetModes[m];budgetRange.textContent=b.range;budgetNote.textContent=b.note;budgetBreakdown.innerHTML=b.break.map(x=>`<span>${x[0]}</span><b>${x[1]}</b>`).join('');['costFood','costDrive','costTransit','costTax','costExtra'].forEach((id,i)=>document.getElementById(id).value=b.vals[i]);calcBudget();renderToday();renderDays()}
+function calcBudget(){let ids=['costFood','costDrive','costTransit','costTax','costExtra'];let total=ids.reduce((s,id)=>s+(Number(document.getElementById(id).value)||0),0);document.getElementById('calcTotal').textContent=money(total);storeSet('portoCosts',JSON.stringify(ids.map(id=>document.getElementById(id).value)))}
+const checks=['Bañador + toalla','Crema solar','Agua','Gorra / gafas','Cortaviento fino','Powerbank','Efectivo pequeño','Bolsas / ropa seca'];
+function renderChecks(){const saved=JSON.parse(storeGet('portoChecks','{}')||'{}');checkGrid.innerHTML=checks.map((x,i)=>`<label class="check"><input type="checkbox" ${saved[i]?'checked':''} onchange="saveChecks()">${x}</label>`).join('')}
+function saveChecks(){let o={};document.querySelectorAll('#checkGrid input').forEach((x,i)=>o[i]=x.checked);storeSet('portoChecks',JSON.stringify(o))}
+async function sharePlan(){let d={title:'PORTO 2026',text:'Planning Oporto 10–16 agosto 2026',url:location.href};if(navigator.share){try{await navigator.share(d);return}catch(e){}}try{await navigator.clipboard.writeText(location.href);alert('Enlace copiado')}catch(e){alert('Copia el enlace desde el navegador')}}
+function init(){activeDay=storeGet('portoActiveDay','10')||'10';renderToday();renderDayTabs();renderDays();renderTypeFilters();renderAllPlaces();renderBeaches();renderMarkets();renderFoods();renderChecks();let m=storeGet('portoBudgetMode','save')||'save';setBudgetMode(m);let costs=JSON.parse(storeGet('portoCosts','null')||'null');if(costs){['costFood','costDrive','costTransit','costTax','costExtra'].forEach((id,i)=>document.getElementById(id).value=costs[i]??document.getElementById(id).value);calcBudget()}const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.navbtn').forEach(n=>n.classList.remove('active'));document.querySelector(`.navbtn[href="#${e.target.id}"]`)?.classList.add('active')}})},{rootMargin:'-25% 0px -65%'});['hoy','dias','playas','comer','presupuesto'].forEach(id=>{let el=document.getElementById(id);if(el)obs.observe(el)})}
+init();
+</script>
+</body>
+</html>
