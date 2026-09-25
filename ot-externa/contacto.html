@@ -1,0 +1,32 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Contacto | Francisco Ortega · Oficina Técnica Externa</title>
+<meta name="description" content="Contacto directo con Francisco Ortega para encargos de apoyo de oficina técnica eléctrica.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><script defer src="app.js"></script></head><body>
+<header class="site-header"><div class="wrap"><div class="nav"><a class="brand" href="index.html"><span class="brand-mark">FO</span><span class="brand-copy"><b>Francisco Ortega</b><span>Oficina Técnica Externa</span></span></a><nav class="nav-links"><a data-current href="trabajos.html">Trabajos</a><a data-current href="experiencia.html">Experiencia</a><a data-current href="como-trabajo.html">Cómo trabajo</a><a class="btn small" href="contacto.html">Contarme un pendiente</a><button class="mobile-toggle" onclick="toggleMenu()">Menú</button></nav></div><div id="mobileMenu" class="mobile-menu"><a href="trabajos.html">Trabajos</a><a href="experiencia.html">Experiencia</a><a href="como-trabajo.html">Cómo trabajo</a><a href="contacto.html">Contacto</a></div></div></header>
+<main>
+<section class="page-hero"><div class="wrap"><div class="crumb">INICIO / CONTACTO</div><div class="eyebrow">Contacto directo</div><h1>Cuéntame el pendiente. No hace falta preparar un briefing.</h1><p class="lead">Con saber qué tienes atascado y qué resultado necesitas suele bastar para empezar la conversación. Si hacen falta planos, Excel, ofertas o más contexto, te indico después qué documentación sería necesaria.</p></div></section>
+<section class="section"><div class="wrap contact-grid">
+<aside class="contact-aside"><div class="kicker" style="color:#7dc49c">Francisco Ortega</div><h2 style="font-size:32px">Hablamos directamente.</h2><p>No hay formulario que vaya a un CRM ni un comercial por medio. El botón prepara un correo desde tu propio programa de email y lo envías tú cuando quieras.</p>
+<p><b>Email</b><br><a href="mailto:franciscortegamadrid@gmail.com">franciscortegamadrid@gmail.com</a></p>
+<button id="copyEmailBtn" class="btn secondary small" onclick="copyEmail()">Copiar email</button>
+<div style="height:22px"></div>
+<p style="font-size:12px">En el primer contacto evita adjuntar documentación confidencial. Describe el trabajo; si encaja, acordamos cómo compartir lo necesario.</p></aside>
+<div class="contact-form"><div class="kicker">Preparar correo</div><h2 style="font-size:30px">Tres líneas son suficientes.</h2>
+<div class="field"><label for="name">Tu nombre</label><input id="name" autocomplete="name" placeholder="Nombre"></div>
+<div class="field"><label for="company">Empresa</label><input id="company" autocomplete="organization" placeholder="Empresa / instaladora"></div>
+<div class="grid-2"><div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="tu@empresa.com"></div><div class="field"><label for="phone">Teléfono (opcional)</label><input id="phone" autocomplete="tel" placeholder="Opcional"></div></div>
+<div class="field"><label for="message">¿Qué tienes pendiente?</label><textarea id="message" placeholder="Ej.: Tengo tres ofertas de material eléctrico y una medición base. Necesito compararlas, detectar diferencias de cantidades/referencias y dejar un cuadro para decidir compra."></textarea></div>
+<p class="form-help">Este formulario no envía ni almacena datos. Al pulsar el botón se abre tu programa de correo con el mensaje preparado.</p>
+<button class="btn green" onclick="buildMail()">Preparar correo →</button>
+</div></div></section>
+<section class="section alt"><div class="wrap"><div class="grid-3">
+<div class="plain-card"><div class="service-num">SI ES COMPARATIVO</div><h3>Cuéntame cuántas ofertas tienes</h3><p>Y si existe una medición/listado base contra el que compararlas.</p></div>
+<div class="plain-card"><div class="service-num">SI ES CONTROL ECONÓMICO</div><h3>Dime qué no te cuadra</h3><p>Por ejemplo: origen vs anterior, mes, acumulado, porcentajes o versión histórica.</p></div>
+<div class="plain-card"><div class="service-num">SI ES DOCUMENTACIÓN</div><h3>Dime qué hay que entregar</h3><p>Dossier final, matriz de faltantes, seguimiento de fichas, planos o documentación de proveedores.</p></div>
+</div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><div class="brand"><span class="brand-mark">FO</span><span class="brand-copy"><b>Francisco Ortega</b><span>Oficina Técnica Externa</span></span></div><p style="margin-top:14px">Apoyo técnico independiente para instaladoras eléctricas y oficinas técnicas.</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="trabajos.html">Trabajos</a><a href="experiencia.html">Experiencia</a><a href="como-trabajo.html">Cómo trabajo</a></div></div><div class="legal">Los datos escritos en esta página no se almacenan en servidor; el contacto se realiza mediante el cliente de correo del usuario.</div></div></footer>
+</body></html>
