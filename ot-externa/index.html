@@ -1,214 +1,131 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Apoyo externo de oficina técnica para instaladoras eléctricas: comparativos, presupuestos, control económico y documentación.">
-  <title>OT Externa · Apoyo técnico para instaladoras eléctricas</title>
-  <style>
-    :root{--ink:#132018;--muted:#637066;--line:#dce4de;--paper:#f7f9f7;--card:#fff;--green:#1f7a4d;--green2:#dff2e7;--dark:#102018;--amber:#9a6500;--red:#9f3535}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.5}
-    a{color:inherit;text-decoration:none}.wrap{max-width:1160px;margin:auto;padding:0 22px}
-    header{position:sticky;top:0;z-index:20;background:rgba(247,249,247,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(220,228,222,.85)}
-    nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}.mark{width:34px;height:34px;border-radius:10px;background:var(--dark);color:#fff;display:grid;place-items:center;font-size:13px}.navlinks{display:flex;gap:24px;align-items:center;color:#405048;font-size:14px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:11px 16px;font-weight:700;border:1px solid var(--dark);cursor:pointer;transition:.18s;background:var(--dark);color:#fff}.btn:hover{transform:translateY(-1px)}.btn.secondary{background:#fff;color:var(--dark);border-color:var(--line)}.btn.small{padding:8px 12px;font-size:13px}
-    .hero{padding:88px 0 60px}.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 10px;border-radius:999px;background:var(--green2);color:#185c3c;font-size:13px;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
-    h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.055em;margin:22px 0 22px;max-width:900px}.lead{font-size:clamp(18px,2vw,22px);color:#526158;max-width:760px;margin:0 0 28px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.proof{display:flex;gap:28px;flex-wrap:wrap;margin-top:42px;color:#55645b;font-size:14px}.proof strong{color:var(--ink)}
-    section{padding:62px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:26px}.section-head h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.04em;line-height:1.05;margin:0;max-width:680px}.section-head p{max-width:500px;color:var(--muted);margin:0}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 24px rgba(16,32,24,.035)}.card h3{margin:10px 0 8px;font-size:20px;letter-spacing:-.02em}.card p{color:var(--muted);margin:0}.num{font-size:12px;font-weight:800;color:var(--green);letter-spacing:.08em}.service-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:#eff6f1;color:var(--green);font-weight:900}
-    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{padding:20px;border-left:2px solid var(--green2)}.step b{display:block;margin:6px 0}.step span{color:var(--muted);font-size:14px}
-    .demo-shell{background:#0f1b14;border-radius:22px;padding:16px;box-shadow:0 30px 80px rgba(16,32,24,.17)}.demo-top{display:flex;justify-content:space-between;align-items:center;color:#dce8df;padding:5px 6px 14px}.lights{display:flex;gap:6px}.lights i{display:block;width:8px;height:8px;border-radius:50%;background:#6f8075}.demo{background:#f8faf8;border-radius:14px;padding:18px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 11px;font-size:13px;cursor:pointer}.tab.active{background:var(--dark);color:#fff;border-color:var(--dark)}
-    .demo-panel{display:none}.demo-panel.active{display:block}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}.kpi small{display:block;color:var(--muted)}.kpi b{font-size:20px}.table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:760px;font-size:13px}th,td{text-align:left;padding:12px;border-bottom:1px solid #edf1ee}th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#68756d;background:#fbfcfb}tr:last-child td{border-bottom:0}.good{color:var(--green);font-weight:700}.warn{color:var(--amber);font-weight:700}.bad{color:var(--red);font-weight:700}.chip{display:inline-flex;padding:4px 7px;border-radius:999px;background:#eef5f0;font-size:11px;font-weight:700}
-    .split{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.quote{background:var(--dark);color:#fff;border-radius:18px;padding:30px}.quote p{color:#bdd0c4;font-size:18px}.quote strong{font-size:26px;letter-spacing:-.03em}.checklist{display:grid;gap:10px;margin-top:20px}.check{display:flex;gap:10px;align-items:flex-start}.check i{font-style:normal;color:#62c18e}
-    .cta{background:#e7f2eb;border:1px solid #cce2d3;border-radius:24px;padding:38px;display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}.cta h2{margin:0 0 9px;font-size:36px;letter-spacing:-.04em}.cta p{margin:0;color:#506158}.note{font-size:12px;color:#758179;margin-top:12px}
-    footer{padding:34px 0 46px;color:#6d7a71;font-size:13px;border-top:1px solid var(--line);margin-top:40px}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .modal{position:fixed;inset:0;background:rgba(7,14,10,.58);display:none;place-items:center;padding:20px;z-index:100}.modal.open{display:grid}.modal-box{width:min(560px,100%);background:#fff;border-radius:18px;padding:24px}.modal-box h3{margin:0 0 6px;font-size:25px}.modal-box p{margin:0 0 18px;color:var(--muted)}label{display:block;font-size:12px;font-weight:800;margin:11px 0 5px}input,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;font:inherit;background:#fff}textarea{min-height:90px;resize:vertical}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
-    @media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.navlinks a:not(.btn){display:none}.cta{grid-template-columns:1fr}.hero{padding-top:60px}}
-    @media(max-width:560px){.grid{grid-template-columns:1fr}.process{grid-template-columns:1fr}.kpis{grid-template-columns:1fr}.wrap{padding:0 16px}.hero{padding-top:48px}.section-head{display:block}.section-head p{margin-top:12px}.cta{padding:26px}.cta h2{font-size:30px}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Francisco Ortega | Oficina Técnica Externa para Instaladoras Eléctricas</title>
+<meta name="description" content="Apoyo externo de oficina técnica para instaladoras eléctricas: comparativos, mediciones, presupuestos, control económico, compras y documentación de obra.">
+<meta name="author" content="Francisco Ortega">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
 </head>
 <body>
-<header>
+<header class="site-header">
   <div class="wrap">
-    <nav>
-      <a class="brand" href="#inicio"><span class="mark">OT</span><span>Oficina Técnica Externa</span></a>
-      <div class="navlinks">
-        <a href="#servicios">Servicios</a><a href="#demo">Ejemplo</a><a href="#como">Cómo trabajo</a>
-        <button class="btn small" onclick="openContact()">Solicitar prueba</button>
-      </div>
-    </nav>
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">FO</span><span class="brand-copy"><b>Francisco Ortega</b><span>Oficina Técnica Externa</span></span></a>
+      <nav class="nav-links">
+        <a data-current href="trabajos.html">Trabajos</a><a data-current href="experiencia.html">Experiencia</a><a data-current href="como-trabajo.html">Cómo trabajo</a>
+        <a class="btn small" href="contacto.html">Contarme un pendiente</a>
+        <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Abrir menú">Menú</button>
+      </nav>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="trabajos.html">Trabajos</a><a href="experiencia.html">Experiencia</a><a href="como-trabajo.html">Cómo trabajo</a><a href="contacto.html">Contacto</a>
+    </div>
   </div>
 </header>
 
-<main id="inicio">
-  <div class="wrap hero">
-    <span class="eyebrow"><span class="dot"></span> Apoyo técnico para instaladoras eléctricas</span><div style="margin-top:16px;font-size:14px;color:#637066">Francisco Ortega · trato directo, sin intermediarios</div>
-    <h1>Saca trabajo de oficina técnica de tu mesa.</h1>
-    <p class="lead">Comparativos de proveedores, mediciones, presupuestos, control económico y documentación de obra. Un apoyo externo cuando tu equipo no da abasto, sin ampliar plantilla.</p>
-    <div class="hero-actions">
-      <button class="btn" onclick="openContact()">Probar con un trabajo real</button>
-      <a class="btn secondary" href="#demo">Ver un ejemplo</a>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Apoyo técnico para instaladoras eléctricas</div>
+      <h1>Cuando la obra avanza, pero la oficina técnica no da abasto.</h1>
+      <p class="lead">Te ayudo con comparativos de proveedores, mediciones y presupuestos, control económico, compras y documentación de obra. Trabajo por encargo, sobre necesidades concretas y sin obligarte a ampliar plantilla.</p>
+      <div class="hero-actions">
+        <a class="btn" href="trabajos.html">Ver ejemplos de trabajo →</a>
+        <a class="btn secondary" href="contacto.html">Contarme un pendiente</a>
+      </div>
+      <div class="cred-line"><b>Experiencia real en obra eléctrica, automatización/BMS, documentación técnica e integración.</b> El servicio lo llevo personalmente y adapto la entrega a la forma de trabajar de cada empresa.</div>
     </div>
-    <div class="proof">
-      <span><strong>Por trabajo o por bolsa de horas</strong><br>sin compromisos largos</span>
-      <span><strong>Enfocado a obra eléctrica</strong><br>BT, MT, alumbrado, datos, PCI y FV</span>
-      <span><strong>Entrega estructurada</strong><br>Excel, comparativos y documentación lista para revisar</span><span><strong>Lo llevas conmigo</strong><br>una sola persona de contacto de principio a fin</span>
+    <aside class="hero-card">
+      <div class="label">Ejemplos de encargos</div>
+      <h3>Trabajo que suele quedarse atascado entre obra, compras y oficina.</h3>
+      <ul class="task-list">
+        <li>Comparar tres ofertas que llegan con referencias y formatos distintos.</li>
+        <li>Cuadrar origen, anterior, mes y acumulado antes de emitir una certificación.</li>
+        <li>Preparar una medición limpia para pedir precios a proveedores.</li>
+        <li>Ordenar fichas, certificados y planos para el cierre documental.</li>
+        <li>Montar un seguimiento claro de pedidos, fechas y pendientes.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Dónde puedo ayudarte</div><h2>Trabajo técnico concreto, con una salida utilizable.</h2></div>
+      <p>No se trata de “hacer un Excel”. Se trata de entender la documentación, detectar qué no cuadra y devolverte un resultado que puedas revisar y utilizar en obra, compras o cierre.</p>
+    </div>
+    <div class="grid-3">
+      <article class="service-card"><div class="service-num">01 / COMPRAS</div><h3>Comparativos de proveedores</h3><p>Homogeneización de partidas, referencias, cantidades, precios, plazos y exclusiones.</p><div class="example">Ej.: tres ofertas de cableado, bandeja y protecciones contra una misma medición.</div></article>
+      <article class="service-card"><div class="service-num">02 / MEDICIONES</div><h3>Mediciones y presupuestos</h3><p>Ordenación de partidas, cantidades, unidades y precios para preparar ofertas o control de obra.</p><div class="example">Ej.: medición eléctrica de una nave organizada por capítulos y preparada para revisión.</div></article>
+      <article class="service-card"><div class="service-num">03 / ECONÓMICO</div><h3>Control y certificaciones</h3><p>Revisión de origen, anterior, mes, acumulado, porcentajes y diferencias.</p><div class="example">Ej.: localizar por qué una certificación no cuadra con el histórico anterior.</div></article>
+      <article class="service-card"><div class="service-num">04 / DOCUMENTACIÓN</div><h3>Dossier y as-built</h3><p>Matriz documental, control de versiones, faltantes y estructura de documentación de cierre.</p><div class="example">Ej.: saber qué ficha, certificado o plano falta antes de entregar al cliente.</div></article>
+      <article class="service-card"><div class="service-num">05 / REVISIÓN</div><h3>Revisión técnica documental</h3><p>Chequeo de coherencia entre planos, listados, ofertas, referencias y documentación técnica.</p><div class="example">Ej.: detectar una referencia equivalente que no cumple exactamente lo solicitado.</div></article>
+      <article class="service-card"><div class="service-num">06 / SEGUIMIENTO</div><h3>Compras y pendientes</h3><p>Cuadros de seguimiento con responsable, proveedor, fecha prevista, incidencia y siguiente acción.</p><div class="example">Ej.: convertir correos dispersos en una lista de suministros que realmente se puede gestionar.</div></article>
     </div>
   </div>
+</section>
 
-  <section id="servicios">
-    <div class="wrap">
-      <div class="section-head"><h2>Lo que consume horas y no debería frenarte la obra.</h2><p>El servicio se adapta al material que ya utilizas: Excel, PDF, mediciones, ofertas de proveedores y documentación técnica.</p></div>
-      <div class="grid">
-        <article class="card"><div class="service-icon">€</div><h3>Comparativos de ofertas</h3><p>Homogeneización de partidas, precios, cantidades, plazos y exclusiones para decidir rápido dónde comprar.</p></article>
-        <article class="card"><div class="service-icon">Σ</div><h3>Mediciones y presupuestos</h3><p>Ordenación de mediciones, preparación de presupuestos y apoyo con Excel/Presto a partir de documentación de obra.</p></article>
-        <article class="card"><div class="service-icon">%</div><h3>Control económico</h3><p>Seguimiento de origen, anterior, mes, acumulado, desviaciones y certificaciones para detectar descuadres antes de enviarlos.</p></article>
-        <article class="card"><div class="service-icon">✓</div><h3>Revisión documental</h3><p>Chequeo de ofertas, fichas técnicas, referencias, cantidades y documentación pendiente antes de compra o entrega.</p></article>
-        <article class="card"><div class="service-icon">D</div><h3>Dossiers y as-built</h3><p>Estructuración de documentación final, fichas, certificados, listados y seguimiento de faltantes de cierre de obra.</p></article>
-        <article class="card"><div class="service-icon">→</div><h3>Seguimiento de compras</h3><p>Preparación de solicitudes, cuadros de seguimiento y comunicaciones con proveedores para que compras no se convierta en otro proyecto.</p></article>
+<section class="section alt">
+  <div class="wrap reality">
+    <div class="dark-card">
+      <div class="kicker">Por qué esto no es genérico</div>
+      <h2>He trabajado con la documentación y los problemas que aparecen detrás de una instalación.</h2>
+      <p>Mi experiencia cruza obra eléctrica, automatización/BMS, interconexión y documentación técnica. Eso me permite entrar en un trabajo entendiendo el contexto técnico, no solo el formato del archivo.</p>
+      <a class="btn secondary" href="experiencia.html">Ver experiencia aplicada</a>
+    </div>
+    <div class="not-generic">
+      <blockquote>“El valor no está en pasar datos de un PDF a un Excel. Está en saber qué se está comparando, qué dato manda y dónde puede haber un problema antes de que llegue a obra, compras o cliente.”</blockquote>
+      <div class="check-grid">
+        <div class="check">BT, cuadros, alumbrado y puesta a tierra.</div>
+        <div class="check">Datos, CCTV, PCI y fotovoltaica.</div>
+        <div class="check">BMS/SCADA, BACnet y Modbus.</div>
+        <div class="check">Presupuestos, compras, Presto y Excel.</div>
+        <div class="check">Interconexión y documentación técnica.</div>
+        <div class="check">Incidencias, cambios e integración.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="demo">
-    <div class="wrap">
-      <div class="section-head"><h2>Ejemplo: de tres ofertas a una decisión clara.</h2><p>Datos ficticios. La idea es enseñar el tipo de resultado que recibes, no obligarte a aprender otra herramienta.</p></div>
-      <div class="demo-shell">
-        <div class="demo-top"><span>Comparativo · Nave industrial / Cuadro y distribución</span><span class="chip">Ejemplo</span></div>
-        <div class="demo">
-          <div class="tabs">
-            <button class="tab active" data-panel="comp">Comparativo</button>
-            <button class="tab" data-panel="control">Control económico</button>
-            <button class="tab" data-panel="docs">Documentación</button>
-          </div>
-          <div class="demo-panel active" id="comp">
-            <div class="kpis"><div class="kpi"><small>Mejor combinación</small><b>8.436 €</b></div><div class="kpi"><small>Mejor proveedor único</small><b>8.912 €</b></div><div class="kpi"><small>Ahorro detectado</small><b class="good">476 €</b></div><div class="kpi"><small>Incidencias</small><b class="warn">3</b></div></div>
-            <div class="table-wrap"><table><thead><tr><th>Partida</th><th>Cant.</th><th>Proveedor A</th><th>Proveedor B</th><th>Proveedor C</th><th>Decisión</th></tr></thead><tbody>
-              <tr><td>RZ1-K (AS) 5G2,5 mm²</td><td>1.200 m</td><td>1,42 €/m</td><td class="good">1,35 €/m</td><td>1,39 €/m</td><td><span class="chip">B · 1.620 €</span></td></tr>
-              <tr><td>Bandeja 200×60</td><td>300 m</td><td>12,80 €/m</td><td>13,10 €/m</td><td class="good">11,95 €/m</td><td><span class="chip">C · 3.585 €</span></td></tr>
-              <tr><td>Magnetotérmico 4P 40 A</td><td>20 ud</td><td>31,20 €</td><td class="good">28,90 €</td><td class="warn">No ofertado</td><td><span class="chip">B · 578 €</span></td></tr>
-              <tr><td>Diferencial 4P 40 A 30 mA</td><td>14 ud</td><td class="good">47,30 €</td><td>49,10 €</td><td>48,60 €</td><td><span class="chip">A · 662,20 €</span></td></tr>
-              <tr><td>Tubo M25 libre halógenos</td><td>500 m</td><td>1,21 €/m</td><td class="warn">1,18 €/m · 400 m</td><td class="good">1,19 €/m</td><td><span class="chip">C · 595 €</span></td></tr>
-            </tbody></table></div>
-            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px"><a class="btn secondary small" href="ejemplo-comparativo.csv" download>Descargar ejemplo CSV</a><span class="note" style="margin:0">⚠ Ejemplo orientativo. Las referencias, equivalencias y pedidos deben revisarse técnicamente antes de emitir una compra.</span></div>
-          </div>
-          <div class="demo-panel" id="control">
-            <div class="kpis"><div class="kpi"><small>Presupuesto</small><b>122.652 €</b></div><div class="kpi"><small>Acumulado</small><b>104.255 €</b></div><div class="kpi"><small>Avance</small><b>85,0%</b></div><div class="kpi"><small>Descuadres</small><b class="bad">2</b></div></div>
-            <div class="table-wrap"><table><thead><tr><th>Concepto</th><th>Origen</th><th>Anterior</th><th>Mes</th><th>Estado</th></tr></thead><tbody>
-              <tr><td>Canalización principal</td><td>22.200,00 €</td><td>20.100,00 €</td><td>2.100,00 €</td><td class="good">Cuadra</td></tr>
-              <tr><td>Cuadros secundarios</td><td>18.450,00 €</td><td>15.000,00 €</td><td>3.450,00 €</td><td class="good">Cuadra</td></tr>
-              <tr><td>Alumbrado interior</td><td>12.910,42 €</td><td>10.620,40 €</td><td>2.290,00 €</td><td class="bad">Diferencia 0,02 €</td></tr>
-            </tbody></table></div>
-          </div>
-          <div class="demo-panel" id="docs">
-            <div class="kpis"><div class="kpi"><small>Documentos</small><b>34</b></div><div class="kpi"><small>Completos</small><b class="good">29</b></div><div class="kpi"><small>Pendientes</small><b class="warn">5</b></div><div class="kpi"><small>Revisiones</small><b>3</b></div></div>
-            <div class="table-wrap"><table><thead><tr><th>Equipo</th><th>Ficha</th><th>Declaración</th><th>Plano / esquema</th><th>Estado</th></tr></thead><tbody>
-              <tr><td>Cuadro CP-01</td><td class="good">Recibida</td><td class="good">Recibida</td><td class="good">Rev. 03</td><td class="good">Completo</td></tr>
-              <tr><td>Luminaria L-07</td><td class="good">Recibida</td><td class="warn">Pendiente</td><td>—</td><td class="warn">Reclamar</td></tr>
-              <tr><td>Inversor FV-01</td><td class="good">Recibida</td><td class="good">Recibida</td><td class="warn">Rev. 01</td><td class="warn">Revisar versión</td></tr>
-            </tbody></table></div>
-          </div>
-        </div>
-      </div>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Experiencia aplicada</div><h2>Una visión bastante más amplia que “hacer presupuestos”.</h2></div>
+      <p>El servicio está pensado para tareas que viven entre la ingeniería, la obra, compras y la documentación: justo donde muchas instaladoras pierden horas de perfiles que deberían estar coordinando o ejecutando.</p>
     </div>
-  </section>
+    <div class="experience-band">
+      <div class="exp-cell"><div class="mini">Obra eléctrica</div><h3>Instalaciones y ejecución</h3><p>BT, cuadros, alumbrado, tierras, datos/CCTV, PCI, fotovoltaica y coordinación de trabajos.</p></div>
+      <div class="exp-cell"><div class="mini">Automatización</div><h3>BMS / SCADA</h3><p>Puesta en marcha, integración, BACnet, Modbus, revisión de puntos e incidencias de campo.</p></div>
+      <div class="exp-cell"><div class="mini">Ingeniería aplicada</div><h3>Interconexión y documentación</h3><p>Documentación eléctrica, BOM, arneses, cambios, incidencias y soporte a integración electromecánica.</p></div>
+      <div class="exp-cell"><div class="mini">Gestión</div><h3>Costes, compras y coordinación</h3><p>Presupuestos, proveedores, seguimiento económico, documentación y relación técnica con cliente.</p></div>
+    </div>
+  </div>
+</section>
 
-  <section>
-    <div class="wrap split">
-      <div class="card">
-        <span class="num">QUIÉN LO LLEVA</span>
-        <h2 style="font-size:34px;letter-spacing:-.04em;margin:12px 0">Francisco Ortega</h2>
-        <p style="font-size:17px">Perfil técnico con experiencia en instalaciones eléctricas, automatización, BMS/SCADA, documentación técnica, coordinación de obra, compras y control económico.</p>
-        <div class="checklist">
-          <div class="check"><i>✓</i><span>Instalaciones eléctricas y coordinación técnica.</span></div>
-          <div class="check"><i>✓</i><span>Excel, Presto y documentación de obra.</span></div>
-          <div class="check"><i>✓</i><span>Comparativos, compras y seguimiento de proveedores.</span></div>
-          <div class="check"><i>✓</i><span>Automatización, BMS/SCADA e integración técnica.</span></div>
-        </div>
-      </div>
-      <div class="quote">
-        <span class="num" style="color:#77d49d">FORMA DE TRABAJO</span>
-        <strong>Me pasas el problema. Te devuelvo una salida utilizable.</strong>
-        <p>No te vendo una herramienta ni te obligo a cambiar de software. El objetivo es quitarte horas de oficina técnica y dejar la decisión final en tus manos.</p>
-      </div>
+<section class="section alt">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div><div class="kicker">Empezar por algo pequeño</div><h2>Si tienes un pendiente concreto, mándamelo.</h2><p>Te digo si encaja, qué necesitaría para hacerlo y cómo plantearía la entrega. Sin preparar un briefing comercial ni contratar nada por adelantado.</p></div>
+      <a class="btn green" href="contacto.html">Contarme el trabajo →</a>
     </div>
-  </section>
-
-  <section id="como">
-    <div class="wrap">
-      <div class="section-head"><h2>Sin cambiar cómo trabajas.</h2><p>Me pasas la documentación disponible, acordamos el resultado que necesitas y recibes un entregable listo para revisar y utilizar.</p></div>
-      <div class="process">
-        <div class="step"><span class="num">01</span><b>Me pasas el trabajo</b><span>PDF, Excel, planos, ofertas o mediciones.</span></div>
-        <div class="step"><span class="num">02</span><b>Definimos la salida</b><span>Comparativo, presupuesto, revisión o dossier.</span></div>
-        <div class="step"><span class="num">03</span><b>Lo preparo</b><span>Con criterios claros y trazabilidad de incidencias.</span></div>
-        <div class="step"><span class="num">04</span><b>Tú decides</b><span>Recibes el resultado para revisar, enviar o utilizar en obra.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap split">
-      <div class="quote">
-        <span class="num" style="color:#77d49d">CUÁNDO TIENE SENTIDO</span>
-        <strong>Cuando tienes trabajo técnico de oficina, pero contratar a otra persona todavía no compensa.</strong>
-        <p>La idea no es sustituir a tu equipo. Es absorber picos, pendientes y tareas que bloquean a quien debería estar llevando la obra.</p>
-      </div>
-      <div class="card">
-        <span class="num">TIPO DE TRABAJOS</span>
-        <div class="checklist">
-          <div class="check"><i>✓</i><span>Comparar 2–5 ofertas de una misma compra.</span></div>
-          <div class="check"><i>✓</i><span>Ordenar o revisar una medición antes de pedir precios.</span></div>
-          <div class="check"><i>✓</i><span>Cuadrar una certificación o control económico.</span></div>
-          <div class="check"><i>✓</i><span>Preparar cuadros de seguimiento de compras o documentación.</span></div>
-          <div class="check"><i>✓</i><span>Montar el dossier final de una obra a partir de documentación dispersa.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="cta">
-        <div><h2>Prueba con un pendiente real.</h2><p>Envíame un trabajo acotado y te digo cómo lo plantearía antes de que te comprometas a nada.</p></div>
-        <button class="btn" onclick="openContact()">Solicitar prueba</button>
-      </div>
-      <p class="note">Servicio de apoyo técnico y documental. Los trabajos que requieran firma, dirección facultativa o atribuciones profesionales reservadas deberán ser revisados y asumidos por el técnico habilitado que corresponda.</p>
-    </div>
-  </section>
+  </div>
+</section>
 </main>
 
-<footer><div class="wrap footer-row"><span>Oficina Técnica Externa · España</span><span>Apoyo técnico para instaladoras eléctricas</span></div></footer>
-
-<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-  <div class="modal-box">
-    <h3 id="contactTitle">Cuéntame qué tienes atascado</h3>
-    <p>Se abrirá tu correo con el mensaje preparado. Puedes adjuntar la documentación después.</p>
-    <label for="name">Nombre</label><input id="name" placeholder="Tu nombre">
-    <label for="company">Empresa</label><input id="company" placeholder="Empresa">
-    <label for="need">Qué necesitas</label><textarea id="need" placeholder="Ej.: tengo tres ofertas de material y necesito compararlas contra la medición."></textarea>
-    <div class="modal-actions"><button class="btn secondary" onclick="closeContact()">Cancelar</button><button class="btn" onclick="prepareMail()">Preparar correo</button></div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><div class="brand"><span class="brand-mark">FO</span><span class="brand-copy"><b>Francisco Ortega</b><span>Oficina Técnica Externa</span></span></div><p style="margin-top:14px">Apoyo técnico independiente para instaladoras eléctricas y oficinas técnicas. Trabajo por encargo sobre documentación autorizada por el cliente.</p></div>
+      <div class="footer-links"><a href="trabajos.html">Trabajos</a><a href="experiencia.html">Experiencia</a><a href="como-trabajo.html">Cómo trabajo</a><a href="contacto.html">Contacto</a></div>
+    </div>
+    <div class="legal">Los servicios se limitan a apoyo técnico, económico, documental y de coordinación. No se ofrecen firmas, direcciones facultativas, legalizaciones ni actuaciones reservadas a técnicos habilitados salvo que sean asumidas por el profesional competente correspondiente.</div>
   </div>
-</div>
-
-<script>
-  document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('.demo-panel').forEach(x=>x.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.panel).classList.add('active');
-  }));
-  const modal=document.getElementById('contactModal');
-  function openContact(){modal.classList.add('open')}
-  function closeContact(){modal.classList.remove('open')}
-  modal.addEventListener('click',e=>{if(e.target===modal)closeContact()});
-  function prepareMail(){
-    const name=document.getElementById('name').value.trim();
-    const company=document.getElementById('company').value.trim();
-    const need=document.getElementById('need').value.trim();
-    const subject=encodeURIComponent('Consulta · apoyo de oficina técnica eléctrica');
-    const body=encodeURIComponent('Hola,\n\nSoy '+(name||'[nombre]')+(company?' de '+company:'')+'.\n\nNecesito apoyo con:\n'+(need||'[describe brevemente el trabajo]')+'\n\nGracias.');
-    window.location.href='mailto:franciscortegamadrid@gmail.com?subject='+subject+'&body='+body;
-  }
-</script>
-</body>
-</html>
+</footer>
+</body></html>
